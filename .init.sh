@@ -16,4 +16,3 @@ do
   echo Setup $link
   ln -sf "$PWD/$file" "$link"
 done
-
