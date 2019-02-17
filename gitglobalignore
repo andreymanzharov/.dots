@@ -1,0 +1,9 @@
+.vscode/
+
+.idea/
+.idea-modules/
+.idea_modules/
+out/
+*.iml
+
+.DS_Store

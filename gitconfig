@@ -1,0 +1,11 @@
+[user]
+	name = Andrey Manzharov
+	email = andreyrmg@gmail.com
+[color]
+	ui = true
+[push]
+	default = simple
+[core]
+	editor = vi
+	excludesfile = ~/.gitglobalignore
+	autocrlf = input
