@@ -1,0 +1,21 @@
+---
+Language:        Cpp
+BasedOnStyle:  LLVM
+AlignEscapedNewlines: Left
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: true
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBraces: Linux
+BreakBeforeTernaryOperators: false
+ColumnLimit:     120
+ContinuationIndentWidth: 4
+IndentWidth:     2
+KeepEmptyLinesAtTheStartOfBlocks: true
+SpacesBeforeTrailingComments: 2
+SpacesInContainerLiterals: false
+UseTab:          Never
+...
+
