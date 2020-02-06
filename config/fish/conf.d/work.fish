@@ -143,3 +143,19 @@ function mounts
   sudo mount --bind "$HOME/Work" /x
   sudo mount --bind "$HOME/Work/servers" /z
 end
+
+function pull-all
+  for r in (dirname */.git/)
+    set_color yellow; echo $r; set_color normal;
+    command git -C "$r" pull --rebase --autostash
+  end
+  for r in (dirname */.hg/)
+    set_color yellow; echo $r; set_color normal;
+    command hg -R $r shelve
+    set -l shelve_status $status
+    command hg -R $r pull --rebase
+    if test $shelve_status -eq 0
+      command hg -R $r unshelve
+    end
+  end
+end
