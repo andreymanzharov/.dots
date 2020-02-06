@@ -137,3 +137,9 @@ end
 function pg_dump --wraps pg_dump --description 'alias pg_dump=pg_dump -U postgres'
   command pg_dump -U postgres $argv
 end
+
+function mounts
+  sudo mount --bind "$HOME/Dev" /w
+  sudo mount --bind "$HOME/Work" /x
+  sudo mount --bind "$HOME/Work/servers" /z
+end
