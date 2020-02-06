@@ -21,3 +21,5 @@ set -x HG_LOG_TEMPLATE "\
 {desc|strip|firstline} \
 {label('green', '({date|age})')} \
 {label('blue', '<{author|person}>')}\n"
+"
+set -x MAVEN_OPTS "-Xmx2g -Xshare:on -XX:TieredStopAtLevel=1 -XX:+UseParallelGC -Xverify:none"
