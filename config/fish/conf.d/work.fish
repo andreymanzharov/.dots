@@ -16,6 +16,10 @@ function mp --wraps mvn --description 'alias mp=mvn -DskipTests package'
   mvn -DskipTests package $argv
 end
 
+function mpt --wraps mvn --description 'alias mpt=mvn package test'
+  mvn package test $argv
+end
+
 function project-name
   if set root (hg root 2>/dev/null)
     echo (basename $root)-(hg branch)
