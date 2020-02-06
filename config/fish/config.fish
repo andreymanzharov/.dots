@@ -2,6 +2,7 @@ set -x LANG en_US.UTF-8
 
 if status is-login
   set -xp PATH $HOME/.local/bin $HOME/.cargo/bin
+  set -xp CDPATH . /x
 end
 
 set -x LESS "$LESS -F -X -S"
