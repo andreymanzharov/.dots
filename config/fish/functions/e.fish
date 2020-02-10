@@ -1,3 +1,3 @@
 function e --wraps vi --description 'alias e=vi'
-	nvim  $argv;
+  vi $argv;
 end
