@@ -1,4 +1,4 @@
-set -x SERVERS_HOME ~/Work/servers
+set -x SERVERS_HOME /z
 
 function mvn --wraps mvn --description 'alias mvn=mvn --threads 1.0C -Dmaven.buildNumber.skip=true'
   command mvn --threads 1.0C -Dmaven.buildNumber.skip=true $argv
