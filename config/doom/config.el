@@ -55,3 +55,7 @@
 
 (setq mac-option-modifier 'none
       mac-command-modifier 'meta)
+
+(after! rustic
+  (setq rustic-lsp-server 'rustic-analyzer
+        rustic-format-on-save t))
