@@ -10,7 +10,7 @@
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
+  #TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -38,7 +38,7 @@ window:
   #  y: 0
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  #dynamic_padding: false
 
   # Window decorations
   #
@@ -65,14 +65,14 @@ window:
   # Window title
   #title: Alacritty
 
-  # Window class (Linux only):
+  # Window class (Linux/BSD only):
   #class:
     # Application instance name
     #instance: Alacritty
     # General application class
     #general: Alacritty
 
-  # GTK theme variant (Linux only)
+  # GTK theme variant (Linux/BSD only)
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
   # Set this to `None` to use the default theme variant.
@@ -88,9 +88,9 @@ window:
   #multiplier: 3
 
 # Font configuration
-font:
+#font:
   # Normal (roman) font face
-  normal:
+  #normal:
     # Font family
     #
     # Default:
@@ -100,7 +100,7 @@ font:
     #family: monospace
 
     # The `style` can be specified to pick a specific face.
-    style: Medium
+    #style: Regular
 
   # Bold font face
   #bold:
