@@ -1,3 +1,8 @@
+.*
+!.gitignore
+!.gitattrinutes
+!.gitmodules
+
 .vscode/
 
 .idea/
