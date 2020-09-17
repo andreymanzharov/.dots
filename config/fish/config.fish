@@ -8,6 +8,50 @@ end
 if status is-interactive
   set BASE16_SHELL "$HOME/.config/base16-shell/"
   source "$BASE16_SHELL/profile_helper.fish"
+
+  abbr --add --global e vi
+  abbr --add --global ev $VISUAL
+
+  abbr --add --global ga git add
+  abbr --add --global ga. git add .
+  abbr --add --global gbsup git branch --set-upstream-to=origin/\(git-current-branch\)
+  abbr --add --global gc git commit -v
+  abbr --add --global gca git commit -v -a
+  abbr --add --global gcam git commit -v -a -m
+  abbr --add --global gcb git checkout -b
+  abbr --add --global gco git checkout
+  abbr --add --global gd git diff
+  abbr --add --global gds git diff --staged
+  abbr --add --global gl git pull
+  abbr --add --global glol git log --graph --pretty='\'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\''
+  abbr --add --global glola git log --graph --pretty='\'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\'' --all
+  abbr --add --global gp git push
+  abbr --add --global gpsup git push --set-upstream origin \(git-current-branch\)
+  abbr --add --global gup git pull --rebase -v
+  abbr --add --global gupa git pull --rebase --autostash -v
+  abbr --add --global grm git rm
+  abbr --add --global gst git status
+  abbr --add --global hlol hg log -GT\$HG_LOG_TEMPLATE -b.
+  abbr --add --global hlola hg log -GT\$HG_LOG_TEMPLATE
+
+  abbr --add --global hgc hg commit
+  abbr --add --global hgd hg diff
+  abbr --add --global hgi hg incoming
+  abbr --add --global hgl hg pull -u
+  abbr --add --global hglr hg pull --rebase
+  abbr --add --global hgo hg outgoing
+  abbr --add --global hgp hg push
+  abbr --add --global hgs hg status
+
+  abbr --add --global l exa -la
+  abbr --add --global ls exa
+  abbr --add --global ll exa -l
+  abbr --add --global la exa -la
+
+  abbr --add --global md mkdir -p
+
+  abbr --add --global ts tmux new-session -s
+  abbr --add --global tss tmux new-session -s _
 end
 
 set -x LESS "$LESS -F -X -S"
