@@ -10,7 +10,9 @@ if status is-interactive
   source "$BASE16_SHELL/profile_helper.fish"
 
   abbr --add --global e vi
-  abbr --add --global ev $VISUAL
+  if test -n "$VISUAL"
+    abbr --add --global ev $VISUAL
+  end
 
   abbr --add --global ga git add
   abbr --add --global ga. git add .
