@@ -52,6 +52,7 @@ if status is-interactive
 
   abbr --add --global ts tmux new-session -s
   abbr --add --global tss tmux new-session -s _
+  abbr --add --global ta tmux attach-session -t
 end
 
 set -x LESS "$LESS -F -X -S"
