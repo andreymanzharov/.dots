@@ -69,13 +69,16 @@ set -x HG_LOG_TEMPLATE "\
 {label('green', '({date|age})')} \
 {label('blue', '<{author|person}>')}\n"
 
-if set domain (hostname -d)
-  if test "$domain" = "krista.ru"
-    set -x JAVA_OPTS "\
-    -Dhttp.nonProxyHosts=\"localhost|127.0.*|10.0.*|172.17.*|172.20.*|178.218.42.94|192.168.*|*.krista.ru\" \
-    -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=3128 \
-    -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=3128 \
-    "
+set os (uname)
+if "$os" = "Linux"
+  if set domain (hostname -d)
+    if test "$domain" = "krista.ru"
+      set -x JAVA_OPTS "\
+      -Dhttp.nonProxyHosts=\"localhost|127.0.*|10.0.*|172.17.*|172.20.*|178.218.42.94|192.168.*|*.krista.ru\" \
+      -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=3128 \
+      -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=3128 \
+      "
+    end
   end
 end
 set -x MAVEN_OPTS "-Xmx2g -Xshare:on -XX:TieredStopAtLevel=1 -XX:+UseParallelGC -Xverify:none"
