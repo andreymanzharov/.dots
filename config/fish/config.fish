@@ -69,9 +69,9 @@ set -x HG_LOG_TEMPLATE "\
 {label('green', '({date|age})')} \
 {label('blue', '<{author|person}>')}\n"
 
-set os (uname)
-if "$os" = "Linux"
-  if set domain (hostname -d)
+set -l os (uname)
+if test "$os" = "Linux"
+  if set -l domain (hostname -d)
     if test "$domain" = "krista.ru"
       set -x JAVA_OPTS "\
       -Dhttp.nonProxyHosts=\"localhost|127.0.*|10.0.*|172.17.*|172.20.*|178.218.42.94|192.168.*|*.krista.ru\" \
