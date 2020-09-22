@@ -95,4 +95,4 @@ if test "$os" = "Linux"
     end
   end
 end
-set -x MAVEN_OPTS "-Xmx2g -Xshare:on -XX:TieredStopAtLevel=1 -XX:+UseParallelGC -Xverify:none"
+set -x MAVEN_OPTS "-Xmx2g -Xshare:on -XX:TieredStopAtLevel=1 -XX:+UseParallelGC"
