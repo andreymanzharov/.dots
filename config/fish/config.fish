@@ -16,6 +16,7 @@ if status is-interactive
 
   abbr --add --global ga git add
   abbr --add --global ga. git add .
+  abbr --add --global gap git add -p
   abbr --add --global gbsup git branch --set-upstream-to=origin/\(git-current-branch\)
   abbr --add --global gc git commit -v
   abbr --add --global gca git commit -v -a
