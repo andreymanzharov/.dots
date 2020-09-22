@@ -61,6 +61,10 @@ if status is-interactive
 
   abbr --add --global md mkdir -p
 
+  function take
+    mkdir -p $argv; and cd $argv
+  end
+
   abbr --add --global ts tmux new-session -s
   abbr --add --global tss tmux new-session -s _
   abbr --add --global ta tmux attach-session -t
