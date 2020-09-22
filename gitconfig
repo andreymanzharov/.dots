@@ -9,5 +9,3 @@
 	editor = vi
 	excludesfile = ~/.gitglobalignore
 	autocrlf = input
-[credential]
-	helper = store
