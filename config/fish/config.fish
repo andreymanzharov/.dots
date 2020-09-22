@@ -45,10 +45,19 @@ if status is-interactive
   abbr --add --global hgp hg push
   abbr --add --global hgs hg status
 
-  abbr --add --global l exa -la
-  abbr --add --global ls exa
-  abbr --add --global ll exa -l
-  abbr --add --global la exa -la
+  function ls -w exa
+    exa $argv
+  end
+
+  function ll -w exa
+    exa -l $argv
+  end
+
+  function la -w exa
+    exa -la $argv
+  end
+
+  abbr --add --global l ll
 
   abbr --add --global md mkdir -p
 
