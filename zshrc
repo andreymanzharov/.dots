@@ -19,6 +19,8 @@ zplug "plugins/systemd", from:oh-my-zsh, if:"[[ $OSTYPE == *linux* ]]"
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 
+zplug "zsh-users/zsh-autosuggestions", from:github
+zplug "zsh-users/zsh-completions", from:github
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug "mafredri/zsh-async", from:github
