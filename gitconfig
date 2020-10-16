@@ -6,6 +6,5 @@
 [push]
 	default = simple
 [core]
-	editor = vi
 	excludesfile = ~/.gitglobalignore
 	autocrlf = input
