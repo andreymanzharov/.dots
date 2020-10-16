@@ -76,6 +76,7 @@ set completeopt=menuone,noinsert,noselect
 set cpoptions+=$
 set formatoptions+=nro
 set gdefault
+set hidden
 set ignorecase
 set list
 set listchars=tab:→\ ,trail:·
