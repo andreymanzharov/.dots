@@ -48,7 +48,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-export LESS="$LESS -F -X -S"
+export LESS="$LESS -F -X -S -R"
 
 if type "bat" > /dev/null; then
   alias b="bat"
