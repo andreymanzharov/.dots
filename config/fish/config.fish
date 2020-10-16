@@ -5,6 +5,8 @@ if status is-login
   set -xp CDPATH . /x
 end
 
+set -l os (uname)
+
 if status is-interactive
   set BASE16_SHELL "$HOME/.config/base16-shell/"
   source "$BASE16_SHELL/profile_helper.fish"
@@ -69,6 +71,10 @@ if status is-interactive
   abbr --add --global ts tmux new-session -s
   abbr --add --global tss tmux new-session -s _
   abbr --add --global ta tmux attach-session -t
+
+  if test "$os" = "Darwin"
+    abbr --add --global bubu brew update\; and brew outdated\; and brew upgrade\; and brew cleanup
+  end
 end
 
 set -x LESS "$LESS -F -X -S"
@@ -83,7 +89,6 @@ set -x HG_LOG_TEMPLATE "\
 {label('green', '({date|age})')} \
 {label('blue', '<{author|person}>')}\n"
 
-set -l os (uname)
 if test "$os" = "Linux"
   if set -l domain (hostname -d)
     if test "$domain" = "krista.ru"
