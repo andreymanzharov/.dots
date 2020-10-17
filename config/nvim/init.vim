@@ -30,35 +30,37 @@ let g:rooter_cd_cmd = 'lcd'
 let g:rooter_silent_chdir = 1
 let g:rooter_resolve_links = 1
 
-Plug 'neovim/nvim-lspconfig'
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-p> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+if has('nvim-0.5')
+  Plug 'neovim/nvim-lspconfig'
+  nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+  nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+  nnoremap <silent> <c-p> <cmd>lua vim.lsp.buf.signature_help()<CR>
+  nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+  nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
-Plug 'nvim-lua/completion-nvim'
-inoremap <silent><expr> <tab>
-      \ pumvisible() ? "\<c-n>" :
-      \ <SID>check_back_space() ? "\<tab>" :
-      \ completion#trigger_completion()
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~ '\s'
-endfunction
+  Plug 'nvim-lua/completion-nvim'
+  inoremap <silent><expr> <tab>
+        \ pumvisible() ? "\<c-n>" :
+        \ <SID>check_back_space() ? "\<tab>" :
+        \ completion#trigger_completion()
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~ '\s'
+  endfunction
 
-Plug 'nvim-lua/diagnostic-nvim'
-let g:diagnostic_enable_virtual_text = 1
-let g:diagnostic_trimmed_virtual_text = '40'
-let g:space_before_virtual_text = 5
-let g:diagnostic_insert_delay = 1
-autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
-nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
-nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
+  Plug 'nvim-lua/diagnostic-nvim'
+  let g:diagnostic_enable_virtual_text = 1
+  let g:diagnostic_trimmed_virtual_text = '40'
+  let g:space_before_virtual_text = 5
+  let g:diagnostic_insert_delay = 1
+  autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+  nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
+  nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
+endif
 
 Plug 'rust-lang/rust.vim', {
       \ 'for': 'rust'
@@ -155,6 +157,7 @@ autocmd BufReadPost *
 
 autocmd BufWritePre * :%s/\s\+$//e
 
+if has('nvim-0.5')
 lua << EOF
 
 local nvim_lsp = require'nvim_lsp'
@@ -172,3 +175,4 @@ nvim_lsp.clangd.setup{
 }
 
 EOF
+endif
