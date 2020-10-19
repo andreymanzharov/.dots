@@ -89,6 +89,7 @@ set relativenumber
 set shortmess+=c
 set smartcase
 set splitright
+set statusline=%f\ %m%r%h%w%q%=%{&fileformat}\ \|\ %{&fileencoding?&fileencoding:&encoding}\ \|\ %y\ %#CursorColumn#%11l:%-10(%c%V%)\ %-5(%3p%%%)
 exe "set undodir=" . s:undodir
 set undofile
 set updatetime=300
