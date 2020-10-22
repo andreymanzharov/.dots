@@ -132,3 +132,5 @@ mounts () {
   sudo mount --bind "$HOME/Work" /x
   sudo mount --bind "$HOME/Work/servers" /z
 }
+
+alias curl3129='curl --proxy 127.0.0.1:3129'
