@@ -7,12 +7,13 @@ mvn_settings_xml () {
   [[ -r "$settings_path/settings.xml" ]] && echo -n " --settings \"$settings_path/settings.xml\""
 }
 
-alias mvn_origin='mvn'
-alias mvn='mvn --threads 1.0C -Dmaven.buildNumber.skip=true `mvn_settings_xml`'
-alias mcp='mvn -DskipTests clean   package'
-alias mci='mvn -DskipTests clean   install'
-alias  mp='mvn -DskipTests package'
-alias mpt='mvn             package test'
+alias m='mvn --builder smart --threads 1.0C -Dmaven.buildNumber.skip=true `mvn_settings_xml`'
+alias mcp='m -DskipTests clean   package'
+alias mci='m -DskipTests clean   install'
+alias  mp='m -DskipTests package'
+alias mpt='m             package test'
+
+alias mvn_install_smart_builder='() { m dependency:copy -Dartifact=io.takari.maven:takari-smart-builder:RELEASE "-DoutputDirectory=$1" }'
 
 # Project
 project_name () {
