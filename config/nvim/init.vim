@@ -165,6 +165,7 @@ local nvim_lsp = require'nvim_lsp'
 local on_attach = function(client)
   require'completion'.on_attach(client)
   require'diagnostic'.on_attach(client)
+  vim.api.nvim_command('set signcolumn=number')
 end
 
 nvim_lsp.rust_analyzer.setup{
