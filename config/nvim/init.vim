@@ -60,6 +60,8 @@ if has('nvim-0.5')
   autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
   nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
   nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
+
+  Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
 Plug 'rust-lang/rust.vim', {
@@ -174,6 +176,13 @@ nvim_lsp.rust_analyzer.setup{
 }
 nvim_lsp.clangd.setup{
   on_attach=on_attach
+}
+
+require'nvim-treesitter.configs'.setup{
+  ensure_installed = { "c", "cpp", "java", "rust" },
+  highlight = {
+    enable = true
+  }
 }
 
 EOF
