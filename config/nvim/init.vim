@@ -25,11 +25,6 @@ nnoremap <c-e> :Buffers<cr>
 Plug 'qpkorr/vim-bufkill'
 let g:BufKillOverrideCtrlCaret = 1
 
-Plug 'airblade/vim-rooter'
-let g:rooter_cd_cmd = 'lcd'
-let g:rooter_silent_chdir = 1
-let g:rooter_resolve_links = 1
-
 if has('nvim-0.5')
   Plug 'neovim/nvim-lspconfig'
   nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -51,15 +46,6 @@ if has('nvim-0.5')
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~ '\s'
   endfunction
-
-  Plug 'nvim-lua/diagnostic-nvim'
-  let g:diagnostic_enable_virtual_text = 1
-  let g:diagnostic_trimmed_virtual_text = '40'
-  let g:space_before_virtual_text = 5
-  let g:diagnostic_insert_delay = 1
-  autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
-  nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
-  nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
 
   Plug 'nvim-treesitter/nvim-treesitter'
 endif
@@ -89,6 +75,7 @@ set numberwidth=3
 set path+=**
 set relativenumber
 set shortmess+=c
+set signcolumn=number
 set smartcase
 set splitright
 set statusline=%f\ %m%r%h%w%q%=%{&fileformat}\ \|\ %{&fileencoding?&fileencoding:&encoding}\ \|\ %y\ %#CursorColumn#%11l:%-10(%c%V%)\ %-5(%3p%%%)
@@ -153,6 +140,8 @@ nnoremap <c-l> <c-w>l
 tnoremap <expr> <esc> &filetype == "fzf" ? "<esc>" : "<c-\><c-n>"
 tnoremap <expr> <c-j> &filetype == "fzf" ? "<c-j>" : "<c-\><c-n>"
 
+nnoremap M :make -j<cr>
+
 autocmd BufReadPost *
       \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
       \ |   exe "normal! g`\""
@@ -160,23 +149,35 @@ autocmd BufReadPost *
 
 autocmd BufWritePre * :%s/\s\+$//e
 
+autocmd UIEnter * set guifont=monospace:h12
+
 if has('nvim-0.5')
 lua << EOF
 
-local nvim_lsp = require'nvim_lsp'
+local lspconfig = require'lspconfig'
 local on_attach = function(client)
   require'completion'.on_attach(client)
-  require'diagnostic'.on_attach(client)
-  vim.api.nvim_command('set signcolumn=number')
 end
 
-nvim_lsp.rust_analyzer.setup{
+lspconfig.rust_analyzer.setup{
   cmd = { "rustup", "run", "nightly", "rust-analyzer" };
   on_attach = on_attach
 }
-nvim_lsp.clangd.setup{
-  on_attach=on_attach
+lspconfig.clangd.setup{
+  on_attach = on_attach
 }
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = false,
+    virtual_text = {
+      spacing = 5,
+      prefix = '~',
+    },
+    signs = true,
+    update_in_insert = false,
+  }
+)
 
 require'nvim-treesitter.configs'.setup{
   ensure_installed = { "c", "cpp", "java", "rust" },
