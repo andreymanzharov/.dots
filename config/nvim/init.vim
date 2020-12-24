@@ -38,14 +38,10 @@ if has('nvim-0.5')
   nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
   Plug 'nvim-lua/completion-nvim'
-  inoremap <silent><expr> <tab>
-        \ pumvisible() ? "\<c-n>" :
-        \ <SID>check_back_space() ? "\<tab>" :
-        \ completion#trigger_completion()
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~ '\s'
-  endfunction
+  inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+  imap <tab> <plug>(completion_smart_tab)
+  imap <s-tab> <plug>(completion_smart_s_tab)
 
   Plug 'nvim-treesitter/nvim-treesitter'
 endif
@@ -75,7 +71,9 @@ set numberwidth=3
 set path+=**
 set relativenumber
 set shortmess+=c
-set signcolumn=number
+if has('nvim-0.5')
+  set signcolumn=number
+endif
 set smartcase
 set splitright
 set statusline=%f\ %m%r%h%w%q%=%{&fileformat}\ \|\ %{&fileencoding?&fileencoding:&encoding}\ \|\ %y\ %#CursorColumn#%11l:%-10(%c%V%)\ %-5(%3p%%%)
@@ -185,6 +183,10 @@ require'nvim-treesitter.configs'.setup{
     enable = true
   }
 }
-
 EOF
+
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+nnoremap <leader>dp <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <leader>dn <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
 endif
