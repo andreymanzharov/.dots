@@ -25,6 +25,10 @@ nnoremap <c-e> :Buffers<cr>
 Plug 'qpkorr/vim-bufkill'
 let g:BufKillOverrideCtrlCaret = 1
 
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<nop>"
+Plug 'honza/vim-snippets'
+
 if has('nvim-0.5')
   Plug 'neovim/nvim-lspconfig'
   nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -42,6 +46,7 @@ if has('nvim-0.5')
   inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
   imap <tab> <plug>(completion_smart_tab)
   imap <s-tab> <plug>(completion_smart_s_tab)
+  let g:completion_enable_snippet = 'UltiSnips'
 
   Plug 'nvim-treesitter/nvim-treesitter'
 endif
