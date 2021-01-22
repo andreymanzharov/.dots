@@ -104,6 +104,8 @@ if filereadable(expand("~/.vimrc_background"))
 else
   colorscheme base16-gruvbox-dark-hard
 endif
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 
 let mapleader = ","
 let maplocalleader = ","
