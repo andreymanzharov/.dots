@@ -154,8 +154,6 @@ autocmd BufReadPost *
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-autocmd UIEnter * set guifont=monospace:h12
-
 if has('nvim-0.5')
 lua << EOF
 
