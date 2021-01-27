@@ -8,3 +8,8 @@
 [core]
 	excludesfile = ~/.gitglobalignore
 	autocrlf = input
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	syntax-theme = gruvbox
