@@ -97,6 +97,10 @@ set expandtab
 set autoindent
 set shiftround
 
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=-1
+
 set background=dark
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
