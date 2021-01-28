@@ -70,7 +70,7 @@ set gdefault
 set hidden
 set ignorecase
 set list
-set listchars=tab:→\ ,trail:·
+set listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣,extends:…
 set number
 set numberwidth=3
 set path+=**
