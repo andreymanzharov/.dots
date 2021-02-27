@@ -28,12 +28,12 @@ zplug "sindresorhus/pure", use:'pure.zsh', from:github, as:theme
 
 zplug "~/.config/zsh", from:local, use:'*.zsh'
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
 
 zplug load
 
@@ -74,4 +74,3 @@ alias tss="ts \ "
 
 alias hlol="hg log -G -b ."
 alias hlola="hg log -G"
-
