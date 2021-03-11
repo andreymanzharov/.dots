@@ -25,6 +25,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:'pure.zsh', from:github, as:theme
+PURE_CMD_MAX_EXEC_TIME=1
 
 zplug "~/.config/zsh", from:local, use:'*.zsh'
 
