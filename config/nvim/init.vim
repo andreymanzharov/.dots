@@ -56,6 +56,14 @@ Plug 'rust-lang/rust.vim', {
       \ }
 let g:rustfmt_autosave = 1
 
+Plug 'godlygeek/tabular', {
+      \ 'for': 'markdown'
+      \ }
+Plug 'gabrielelana/vim-markdown', {
+      \ 'for': 'markdown'
+      \ }
+autocmd FileType markdown setlocal spell spelllang=en,ru
+
 call plug#end()
 
 filetype plugin indent on
