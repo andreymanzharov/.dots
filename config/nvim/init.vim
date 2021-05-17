@@ -45,7 +45,6 @@ endif
 Plug 'rust-lang/rust.vim', {
       \ 'for': 'rust'
       \ }
-let g:rustfmt_autosave = 1
 
 Plug 'godlygeek/tabular', {
       \ 'for': 'markdown'
@@ -191,6 +190,7 @@ local on_attach = function(client, bufnr)
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
   end
   if client.resolved_capabilities.document_range_formatting then
     buf_set_keymap("v", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
