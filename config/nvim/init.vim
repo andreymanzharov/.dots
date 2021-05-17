@@ -121,9 +121,9 @@ nnoremap ; :
 nnoremap <silent> <leader>ev :e $MYVIMRC<cr>
 nnoremap <silent> <leader>sv :so $MYVIMRC<cr>
 
-nnoremap <f2> :w<cr>
-nnoremap <leader>w :w<cr>
-inoremap <f2> <c-o>:w<cr>
+nnoremap <f2> :up<cr>
+nnoremap <leader>w :up<cr>
+inoremap <f2> <c-o>:up<cr>
 
 nnoremap <silent> <leader>cd :lcd %:h<cr>
 if has('unix')
