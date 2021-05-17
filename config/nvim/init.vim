@@ -228,8 +228,5 @@ require'nvim-treesitter.configs'.setup{
 }
 EOF
 
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-nnoremap <leader>dp <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <leader>dn <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 endif
