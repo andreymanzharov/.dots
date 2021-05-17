@@ -204,6 +204,9 @@ lspconfig.rust_analyzer.setup{
 lspconfig.clangd.setup{
   on_attach = on_attach
 }
+lspconfig.gopls.setup{
+  on_attach = on_attach
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -218,7 +221,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 require'nvim-treesitter.configs'.setup{
-  ensure_installed = { "c", "cpp", "java", "python", "rust" },
+  ensure_installed = { "c", "cpp", "go", "java", "python", "rust" },
   highlight = {
     enable = true
   }
