@@ -156,6 +156,9 @@ autocmd BufReadPost *
 
 autocmd BufWritePre * :%s/\s\+$//e
 
+let g:neovide_cursor_vfx_mode = "pixiedust"
+set guifont=monospace:h18
+
 if has('nvim-0.5')
 lua << EOF
 
