@@ -17,8 +17,10 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-command! -bang -nargs=? -complete=dir
-  \ Files call fzf#vim#files(<q-args>, {'source': 'fd'}, <bang>0)
+if executable('fd')
+  command! -bang -nargs=? -complete=dir
+        \ Files call fzf#vim#files(<q-args>, {'source': 'fd'}, <bang>0)
+endif
 nnoremap <c-n> :Files<cr>
 nnoremap <c-e> :Buffers<cr>
 
