@@ -143,6 +143,8 @@ nnoremap <c-l> <c-w>l
 
 tnoremap <expr> <esc> &filetype == "fzf" ? "<esc>" : "<c-\><c-n>"
 tnoremap <expr> <c-j> &filetype == "fzf" ? "<c-j>" : "<c-\><c-n>"
+tnoremap <expr> <c-h> &filetype == "fzf" ? "<c-h>" : "<c-\><c-n><c-w>h"
+tnoremap <expr> <c-l> &filetype == "fzf" ? "<c-l>" : "<c-\><c-n><c-w>l"
 
 nnoremap M :make -j<cr>
 
