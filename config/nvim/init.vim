@@ -27,17 +27,15 @@ nnoremap <c-e> :Buffers<cr>
 Plug 'qpkorr/vim-bufkill'
 let g:BufKillOverrideCtrlCaret = 1
 
-if has('nvim-0.5')
-  Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig'
 
-  Plug 'nvim-lua/completion-nvim'
-  inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
-  inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-  imap <tab> <plug>(completion_smart_tab)
-  imap <s-tab> <plug>(completion_smart_s_tab)
+Plug 'nvim-lua/completion-nvim'
+inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+imap <tab> <plug>(completion_smart_tab)
+imap <s-tab> <plug>(completion_smart_s_tab)
 
-  Plug 'nvim-treesitter/nvim-treesitter'
-endif
+Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'rust-lang/rust.vim', {
       \ 'for': 'rust'
@@ -158,7 +156,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 let g:neovide_cursor_vfx_mode = "pixiedust"
 set guifont=monospace:h18
 
-if has('nvim-0.5')
 lua << EOF
 
 local lspconfig = require'lspconfig'
@@ -242,5 +239,3 @@ end
 vim.api.nvim_command[[command W call v:lua.write_buf_with_sudo()]]
 
 EOF
-
-endif
