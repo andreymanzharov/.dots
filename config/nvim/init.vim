@@ -15,15 +15,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-if executable('fd')
-  command! -bang -nargs=? -complete=dir
-        \ Files call fzf#vim#files(<q-args>, {'source': 'fd'}, <bang>0)
-endif
-nnoremap <c-n> :Files<cr>
-nnoremap <c-e> :Buffers<cr>
-
 Plug 'qpkorr/vim-bufkill'
 let g:BufKillOverrideCtrlCaret = 1
 
@@ -48,6 +39,13 @@ Plug 'gabrielelana/vim-markdown', {
       \ 'for': 'markdown'
       \ }
 autocmd FileType markdown setlocal spell spelllang=en,ru
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+nnoremap <c-n> :Telescope find_files<cr>
+nnoremap <c-e> :Telescope buffers<cr>
 
 call plug#end()
 
@@ -225,6 +223,40 @@ require'nvim-treesitter.configs'.setup{
     enable = true
   }
 }
+
+require"telescope".setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<c-j>"] = "move_selection_next",
+        ["<c-k>"] = "move_selection_previous"
+      }
+    }
+  },
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<c-d>"] = "delete_buffer",
+        },
+        n = {
+          ["<c-d>"] = "delete_buffer",
+        }
+      }
+    },
+    git_branches = {
+      mappings = {
+        i = {
+          ["<c-d>"] = "git_delete_branch"
+        },
+        n = {
+          ["<c-d>"] = "git_delete_branch"
+        }
+      }
+    }
+  }
+}
+require'telescope'.load_extension'fzf'
 
 function _G.write_buf_with_sudo()
   if not vim.bo.modified then
