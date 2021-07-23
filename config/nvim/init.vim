@@ -143,6 +143,8 @@ tnoremap <expr> <c-h> &filetype == "fzf" ? "<c-h>" : "<c-\><c-n><c-w>h"
 tnoremap <expr> <c-l> &filetype == "fzf" ? "<c-l>" : "<c-\><c-n><c-w>l"
 
 nnoremap M :make -j<cr>
+nnoremap <c-a-j> :cnext<cr>
+nnoremap <c-a-k> :cprev<cr>
 
 autocmd BufReadPost *
       \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
