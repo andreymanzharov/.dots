@@ -111,7 +111,7 @@ nnoremap gQ <nop>
 nnoremap ; :
 
 nnoremap <silent> <leader>ev :e $MYVIMRC<cr>
-nnoremap <silent> <leader>sv :so $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nnoremap <f2> :up<cr>
 nnoremap <leader>w :up<cr>
