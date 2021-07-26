@@ -26,7 +26,10 @@ inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 imap <tab> <plug>(completion_smart_tab)
 imap <s-tab> <plug>(completion_smart_s_tab)
 
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {
+      \ 'branch': '0.5-compat',
+      \ 'do': ':TSUpdate'
+      \ }
 
 Plug 'rust-lang/rust.vim', {
       \ 'for': 'rust'
