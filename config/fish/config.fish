@@ -27,6 +27,7 @@ if status is-interactive
   abbr --add --global gco git checkout
   abbr --add --global gd git diff
   abbr --add --global gds git diff --staged
+  abbr --add --global gfa git fetch --all --prune --jobs=10
   abbr --add --global gl git pull
   abbr --add --global glol git log --graph --pretty='\'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\''
   abbr --add --global glola git log --graph --pretty='\'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\'' --all
@@ -100,4 +101,6 @@ if test "$os" = "Linux"
     end
   end
 end
+set -x JAVA_HOME /etc/java-config-2/current-system-vm
+set -x MAVEN_HOME /usr/local/stow/apache-maven-3.8.2
 set -x MAVEN_OPTS "-Xmx2g -Xshare:on -XX:TieredStopAtLevel=1 -XX:+UseParallelGC"
