@@ -57,5 +57,5 @@
       mac-command-modifier 'meta)
 
 (after! rustic
-  (setq rustic-lsp-server 'rustic-analyzer
-        rustic-format-on-save t))
+  (setq rustic-format-on-save t
+        rustic-analyzer-command '("~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rust-analyzer")))
