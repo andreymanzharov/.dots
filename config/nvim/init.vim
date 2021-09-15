@@ -50,6 +50,8 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 nnoremap <c-n> :Telescope find_files<cr>
 nnoremap <c-e> :Telescope buffers<cr>
 
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+
 call plug#end()
 
 filetype plugin indent on
@@ -207,6 +209,9 @@ lspconfig.clangd.setup{
   on_attach = on_attach
 }
 lspconfig.gopls.setup{
+  on_attach = on_attach
+}
+lspconfig.pylsp.setup{
   on_attach = on_attach
 }
 
