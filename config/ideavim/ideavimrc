@@ -216,14 +216,14 @@ vmap б ,
 vmap ю .
 vmap . /
 
-map <leader>r :action Vcs.Operations.Popup<cr>
-map <leader>a :action Annotate<cr>
+map <leader>r <action>(Vcs.Operations.Popup)
+map <leader>a <action>(Annotate)
 
-map M :action CompileDirty<cr>
+map M <action>(CompileDirty)
 
-nmap <space>h :action PrevSplitter<cr>
-nmap <space>l :action NextSplitter<cr>
+nmap <space>h <action>(PrevSplitter)
+nmap <space>l <action>(NextSplitter)
 
-nmap <space><space> :action GotoClass<cr>
-nmap <space>f :action GotoFile<cr>
-nmap <space>e :action RecentFiles<cr>
+nmap <space><space> <action>(GotoClass)
+nmap <space>f <action>(GotoFile)
+nmap <space>e <action>(RecentFiles)
