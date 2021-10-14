@@ -83,6 +83,17 @@ alias kccpadr='kccpad && kcr'
 alias kcd='kc deploy'
 alias kcdf='kc deploy -f'
 
+# k
+alias kr='k start'
+alias ks='k stop'
+alias kp='k build'
+alias kcp='k build --clean'
+alias kpr='k build --restart'
+alias kcpr='k build --clean --restart'
+alias kcpa='k build --rebuild --clean'
+alias kcpar='k build --rebuild --clean --restart'
+alias kd='k deploy'
+
 # # Krupd
 # alias kcr='kc jboss.start'
 # alias kcs='kc jboss.stop'
