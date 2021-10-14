@@ -20,11 +20,9 @@ let g:BufKillOverrideCtrlCaret = 1
 
 Plug 'neovim/nvim-lspconfig'
 
-Plug 'nvim-lua/completion-nvim'
-inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-imap <tab> <plug>(completion_smart_tab)
-imap <s-tab> <plug>(completion_smart_s_tab)
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 
 Plug 'nvim-treesitter/nvim-treesitter', {
       \ 'branch': '0.5-compat',
@@ -59,7 +57,7 @@ syntax enable
 
 set autowrite
 set colorcolumn=+1
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noinsert,noselect
 set cpoptions+=$
 set formatoptions+=nro
 set gdefault
@@ -162,6 +160,42 @@ let g:neovide_cursor_vfx_mode = "pixiedust"
 set guifont=monospace:h18
 
 lua << EOF
+local cmp = require'cmp'
+cmp.setup{
+  completion = {
+    autocomplete = false,
+  },
+  mapping = {
+    ['<c-space>'] = cmp.mapping.complete(),
+    ['<tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        local col = vim.fn.col('.') - 1
+        if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+          fallback()
+        else
+          cmp.complete()
+        end
+      end
+    end,
+    ['<s-tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        local col = vim.fn.col('.') - 1
+        if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+          fallback()
+        else
+          cmp.complete()
+        end
+      end
+    end
+  },
+  sources = {
+    { name = 'buffer' },
+  }
+}
 
 local lspconfig = require'lspconfig'
 local on_attach = function(client, bufnr)
@@ -199,20 +233,37 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_range_formatting then
     buf_set_keymap("v", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
+
+  cmp.setup.buffer{
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'buffer' },
+    },
+  }
 end
 
+local client_capabilities = vim.lsp.protocol.make_client_capabilities()
+
 lspconfig.rust_analyzer.setup{
-  cmd = { "rustup", "run", "nightly", "rust-analyzer" };
-  on_attach = on_attach
+  cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
 }
 lspconfig.clangd.setup{
-  on_attach = on_attach
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
 }
 lspconfig.gopls.setup{
-  on_attach = on_attach
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
+}
+lspconfig.zls.setup{
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
 }
 lspconfig.pylsp.setup{
-  on_attach = on_attach
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
