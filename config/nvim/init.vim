@@ -257,10 +257,6 @@ lspconfig.gopls.setup{
   on_attach = on_attach,
   capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
 }
-lspconfig.zls.setup{
-  on_attach = on_attach,
-  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
-}
 lspconfig.pylsp.setup{
   on_attach = on_attach,
   capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
