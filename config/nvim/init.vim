@@ -68,6 +68,7 @@ set listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣,extends:…
 set number
 set numberwidth=3
 set path+=**
+set pumblend=17
 set relativenumber
 set shortmess+=c
 if has('nvim-0.5')
