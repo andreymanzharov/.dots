@@ -158,7 +158,7 @@ autocmd BufReadPost *
 autocmd BufWritePre * :%s/\s\+$//e
 
 let g:neovide_cursor_vfx_mode = "pixiedust"
-set guifont=monospace:h18
+set guifont=Iosevka:h12
 
 lua << EOF
 local cmp = require'cmp'
