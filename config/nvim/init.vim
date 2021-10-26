@@ -194,7 +194,12 @@ cmp.setup{
     end
   },
   sources = {
+    { name = 'nvim_lsp' },
     { name = 'buffer' },
+  },
+  experimental = {
+    native_menu = false,
+    ghost_text = true,
   }
 }
 
@@ -234,33 +239,25 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_range_formatting then
     buf_set_keymap("v", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
-
-  cmp.setup.buffer{
-    sources = {
-      { name = 'nvim_lsp' },
-      { name = 'buffer' },
-    },
-  }
 end
 
-local client_capabilities = vim.lsp.protocol.make_client_capabilities()
-
+local capabilities = require'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 lspconfig.rust_analyzer.setup{
   cmd = { "rustup", "run", "nightly", "rust-analyzer" },
   on_attach = on_attach,
-  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
+  capabilities = capabilities
 }
 lspconfig.clangd.setup{
   on_attach = on_attach,
-  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
+  capabilities = capabilities
 }
 lspconfig.gopls.setup{
   on_attach = on_attach,
-  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
+  capabilities = capabilities
 }
 lspconfig.pylsp.setup{
   on_attach = on_attach,
-  capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
+  capabilities = capabilities
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
