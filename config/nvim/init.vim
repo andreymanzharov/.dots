@@ -52,6 +52,8 @@ nnoremap <c-e> :Telescope buffers<cr>
 
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
+Plug 'ekickx/clipboard-image.nvim'
+
 call plug#end()
 
 filetype plugin indent on
@@ -308,5 +310,23 @@ function _G.write_buf_with_sudo()
   end
 end
 vim.api.nvim_command[[command W call v:lua.write_buf_with_sudo()]]
+
+require'clipboard-image'.setup{
+  default = {
+    img_name = function ()
+      vim.fn.inputsave()
+      local name = vim.fn.input('Save image as: ')
+      vim.fn.inputrestore()
+      return name
+    end,
+  },
+  asciidoc = {
+    img_dir = function ()
+      return vim.fn.expand('%:r')
+    end,
+    img_dir_txt = "{docname}",
+    affix = "image::%s[]",
+  }
+}
 
 EOF
