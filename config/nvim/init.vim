@@ -49,6 +49,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 nnoremap <c-n> :Telescope find_files<cr>
 nnoremap <c-e> :Telescope buffers<cr>
+nnoremap <space><f12> :Telescope treesitter<cr>
 
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
