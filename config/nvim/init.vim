@@ -27,7 +27,6 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
 Plug 'nvim-treesitter/nvim-treesitter', {
-      \ 'branch': '0.5-compat',
       \ 'do': ':TSUpdate'
       \ }
 
