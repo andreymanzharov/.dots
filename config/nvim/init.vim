@@ -180,6 +180,14 @@ cmp.setup{
   },
   mapping = {
     ['<c-space>'] = cmp.mapping.complete(),
+    ['<cr>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    }),
+    ['<tab>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
   },
   sources = {
     { name = 'nvim_lsp' },
