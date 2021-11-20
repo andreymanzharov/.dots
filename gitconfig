@@ -13,3 +13,5 @@
 	diffFilter = delta --color-only
 [delta]
 	syntax-theme = base16
+[pull]
+	ff = only
