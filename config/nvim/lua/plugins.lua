@@ -14,62 +14,69 @@ return require'packer'.startup(function ()
 
   use 'wbthomason/packer.nvim'
 
-  use 'chriskempson/base16-vim'
+  use {
+    'chriskempson/base16-vim',
+    config = require'cfg.colorschema'.config
+  }
 
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-fugitive'
+  use {
+    'tpope/vim-commentary',
+    'tpope/vim-surround',
+    'tpope/vim-fugitive'
+  }
 
   use {
     'qpkorr/vim-bufkill',
     config = 'vim.g.BufKillOverrideCtrlCaret = true'
   }
 
-  use 'neovim/nvim-lspconfig'
-
   use {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
-    'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip'
+    'hrsh7th/vim-vsnip',
+    {'hrsh7th/nvim-cmp', config = require'cfg.completion'.config}
+  }
+
+  use {
+    'neovim/nvim-lspconfig',
+    config = require'cfg.lsp'.config
   }
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    config = require'cfg.treesitter'.config
   }
 
   use {
-    'rust-lang/rust.vim',
-    ft = {'rust'}
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = require'cfg.telescope'.config
   }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make',
+    config = 'require"telescope".load_extension"fzf"'
+  }
+
+  use {'Vimjas/vim-python-pep8-indent', ft = 'python'}
+
+  use {'rust-lang/rust.vim', ft = {'rust'}}
+
+  use {'ziglang/zig.vim', ft = {'zig'}}
 
   use {'gabrielelana/vim-markdown', ft = {'markdown'}}
   use {'godlygeek/tabular', ft = {'markdown'}}
 
-  use {
-    'ziglang/zig.vim',
-    ft = {'zig'}
-  }
-
-  use 'lervag/vimtex'
+  use {'lervag/vimtex', ft = {'tex'}}
 
   use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    'ekickx/clipboard-image.nvim',
+    opt = true,
+    cmd = {'PasteImg'},
+    config = require'cfg.clipboard-image'.config
   }
-  use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make'
-  }
-
-  use {
-    'Vimjas/vim-python-pep8-indent',
-    ft = 'python'
-  }
-
-  use 'ekickx/clipboard-image.nvim'
 
   if packer_bootstrap then
     require'packer'.sync()
