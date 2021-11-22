@@ -223,6 +223,7 @@ map M <action>(CompileDirty)
 
 nmap <space>h <action>(PrevSplitter)
 nmap <space>l <action>(NextSplitter)
+nmap <space>u <action>(Unsplit)
 
 nmap <space><space> <action>(GotoClass)
 nmap <space>f <action>(GotoFile)
