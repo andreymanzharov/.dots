@@ -6,12 +6,16 @@
 [push]
 	default = simple
 [core]
-	excludesfile = ~/.gitglobalignore
+	excludesfile = ~/.config/git/ignore
 	autocrlf = input
 	pager = delta
+	attributesFile = ~/.config/git/attributes
 [interactive]
 	diffFilter = delta --color-only
 [delta]
 	syntax-theme = base16
 [pull]
 	ff = only
+[maintenance]
+	repo = /x/fkc/fkc
+	repo = /w/third/jdk
