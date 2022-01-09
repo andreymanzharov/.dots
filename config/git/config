@@ -13,6 +13,9 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
+	line-numbers = true
+	file-decoration-style =
+	hunk-header-decoration-style =
 	syntax-theme = base16
 [pull]
 	ff = only
