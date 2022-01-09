@@ -1,5 +1,16 @@
 let mapleader = " "
 
+nnoremap <leader>sv :action IdeaVim.ReloadVimRc.reload<cr>
+
+set ignorecase
+set incsearch
+set number
+set relativenumber
+set smartcase
+
+set clipboard+=unnamed
+set clipboard+=ideaput
+
 set surround
 set multiple-cursors
 set ideajoin
@@ -12,8 +23,10 @@ set textobj-indent
 set visualbell
 set noerrorbells
 
-set nonu
-set nornu
+sethandler <c-h> a:vim
+sethandler <c-l> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 nmap Й Q
 nmap Ц W
