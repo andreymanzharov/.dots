@@ -40,7 +40,7 @@ return require'packer'.startup(function ()
 
   use {
     'neovim/nvim-lspconfig',
-    config = require'cfg.lsp'.config
+    config = function () require'cfg.lsp'() end
   }
 
   use {
