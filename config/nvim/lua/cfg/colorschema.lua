@@ -1,4 +1,4 @@
-local function configure_colorschema()
+return function ()
   vim.opt.background = 'dark'
   vim.opt.termguicolors = true
 
@@ -14,7 +14,3 @@ local function configure_colorschema()
     hi NonText ctermbg=none
   ]]
 end
-
-return {
-  config = configure_colorschema
-}

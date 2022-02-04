@@ -16,7 +16,7 @@ return require'packer'.startup(function ()
 
   use {
     'chriskempson/base16-vim',
-    config = require'cfg.colorschema'.config
+    config = function () require'cfg.colorschema'() end
   }
 
   use {
