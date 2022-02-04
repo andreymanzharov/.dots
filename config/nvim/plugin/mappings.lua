@@ -4,6 +4,7 @@ vim.api.nvim_set_keymap('n', 'Q', '<nop>', opts)
 vim.api.nvim_set_keymap('n', 'gQ', '<nop>', opts)
 
 vim.api.nvim_set_keymap('n', ';', ':', {noremap = true})
+vim.api.nvim_set_keymap('v', ';', ':', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<f2>', '<cmd>update<cr>', opts)
 vim.api.nvim_set_keymap('i', '<f2>', '<cmd>update<cr>', opts)
