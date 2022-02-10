@@ -1,5 +1,10 @@
 vim.g.mapleader = ","
 
+local fish = "fish"
+if vim.opt.shell:get():sub(-#fish) == fish then
+  vim.opt.shell = "sh"
+end
+
 require'plugins'
 
 vim.cmd[[

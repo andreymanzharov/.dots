@@ -78,6 +78,8 @@ return require'packer'.startup(function ()
     config = require'cfg.clipboard-image'.config
   }
 
+  use {'dag/vim-fish'}
+
   if packer_bootstrap then
     require'packer'.sync()
   end
