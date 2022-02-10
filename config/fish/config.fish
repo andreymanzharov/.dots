@@ -23,8 +23,8 @@ if status is-interactive
   abbr --add --global gupa git pull --rebase --autostash -v
   abbr --add --global gst git status
 
-  abbr --add --global hlol hg log --branch . --branch default
-  abbr --add --global hlola hg log
+  abbr --add --global hlol hg log --graph --branch . --branch default
+  abbr --add --global hlola hg log --graph
 
   abbr --add --global hgc hg commit
   abbr --add --global hgd hg diff
