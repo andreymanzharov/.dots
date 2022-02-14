@@ -1,11 +1,29 @@
 set -x SERVERS_HOME /z
 
 set -x JAVA_HOME /etc/java-config-2/current-system-vm
-set -x JAVA_OPTS "\
--Dhttp.nonProxyHosts=\"localhost|127.0.*|10.0.*|172.17.*|172.20.*|178.218.42.94|192.168.*|*.krista.ru\" \
--Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=3128 \
--Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=3128 \
-"
+set -x JAVA_OPTS
+
+function __java_opts_append_proxy -a schema url
+  echo $url | grep -oP 'https?://\K([^/]*)' | read -d ':' -l host port
+  if test -n $host
+    set -xa JAVA_OPTS -D$schema.proxyHost=$host
+  end
+  if test -n $port
+    set -xa JAVA_OPTS -D$schema.proxyPort=$port
+  end
+end
+
+function __java_opts_append_non_proxy
+  set -l non_proxy (string replace -a , \| $no_proxy)
+  if test -n $non_proxy
+    set -xa JAVA_OPTS -Dhttp.nonProxyHosts=\"$non_proxy\"
+  end
+end
+
+__java_opts_append_proxy http $http_proxy
+__java_opts_append_proxy https $https_proxy
+__java_opts_append_non_proxy
+
 set -x MAVEN_HOME /usr/local/stow/apache-maven-3.8.4
 set -x MAVEN_OPTS "-Xmx2g -Xshare:on -XX:TieredStopAtLevel=1 -XX:+UseParallelGC"
 
