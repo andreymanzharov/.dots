@@ -34,15 +34,13 @@ if status --is-interactive
   abbr --add --global mci mvn -T1.0C -Dmaven.buildNumber.skip=true -DskipTests clean install
   abbr --add --global mpt mvn -T1.0C -Dmaven.buildNumber.skip=true package test
 
-  abbr --add --global kr k start
-  abbr --add --global ks k stop
-  abbr --add --global kp k build
-  abbr --add --global kcp k build --clean
-  abbr --add --global kpr k build --restart
-  abbr --add --global kcpr k build --clean --restart
-  abbr --add --global kcpa k build --rebuild --clean
-  abbr --add --global kcpar k build --rebuild --clean --restart
-  abbr --add --global kd k deploy
+  abbr --add --global kp kc build
+  abbr --add --global kpa kc build --force
+  abbr --add --global kcp kc build --clean
+  abbr --add --global kcpa kc build --clean --force
+  abbr --add --global kd kc deploy
+  abbr --add --global kr kc start
+  abbr --add --global ks kc stop
 end
 
 function psql --wraps psql --description 'alias psql=psql -U postgres'
