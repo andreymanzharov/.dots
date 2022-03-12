@@ -20,7 +20,6 @@ vim.opt.shortmess:append'c'
 vim.opt.signcolumn = 'number'
 vim.opt.smartcase = true
 vim.opt.splitright = true
-vim.opt.statusline = '%f %m%r%h%w%q%=%{&fileformat} | %{&fileencoding?&fileencoding:&encoding} | %y %#CursorColumn#%11l:%-10(%c%V%) %-5(%3p%%%)'
 vim.opt.updatetime = 300
 vim.opt.virtualedit = 'onemore'
 vim.opt.visualbell = true

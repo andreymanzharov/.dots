@@ -13,4 +13,11 @@ return function ()
     hi Normal ctermbg=none
     hi NonText ctermbg=none
   ]]
+
+  require'lualine'.setup{
+    options = {
+      icons_enabled = false,
+      theme = 'gruvbox'
+    }
+  }
 end

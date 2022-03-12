@@ -19,6 +19,8 @@ return require'packer'.startup(function ()
     config = function () require'cfg.colorschema'() end
   }
 
+  use 'nvim-lualine/lualine.nvim'
+
   use {
     'tpope/vim-commentary',
     'tpope/vim-surround',
