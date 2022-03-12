@@ -30,7 +30,10 @@ return function ()
         }
       },
       treesitter = {
-        theme = 'ivy'
+        theme = 'dropdown'
+      },
+      help_tags = {
+        theme = 'dropdown'
       }
     }
   }
