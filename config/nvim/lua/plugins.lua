@@ -35,7 +35,10 @@ return require'packer'.startup(function ()
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
-    {'hrsh7th/nvim-cmp', config = function () require'cfg.completion'() end }
+    {
+      'hrsh7th/nvim-cmp',
+      config = function () require'cfg.completion'() end
+    }
   }
 
   use {
@@ -50,14 +53,16 @@ return require'packer'.startup(function ()
   }
 
   use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} },
-    config = require'cfg.telescope'.config
-  }
-  use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make',
-    config = 'require"telescope".load_extension"fzf"'
+    {
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/plenary.nvim'} },
+      config = function () require'cfg.telescope'() end
+    },
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'make',
+      config = [[require'telescope'.load_extension'fzf']]
+    }
   }
 
   use {'Vimjas/vim-python-pep8-indent', ft = 'python'}
@@ -75,7 +80,7 @@ return require'packer'.startup(function ()
     'ekickx/clipboard-image.nvim',
     opt = true,
     cmd = {'PasteImg'},
-    config = require'cfg.clipboard-image'.config
+    config = function () require'cfg.clipboard-image'() end
   }
 
   use {'dag/vim-fish'}

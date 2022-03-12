@@ -1,4 +1,4 @@
-local function configure_telescope()
+return function ()
   require'telescope'.setup{
     defaults = {
       mappings = {
@@ -46,7 +46,3 @@ local function configure_telescope()
   local config = vim.fn.stdpath('config')
   vim.api.nvim_set_keymap('n', '<leader>ev', '<cmd>Telescope find_files cwd='..config..'<cr>', opts)
 end
-
-return {
-  config = configure_telescope
-}

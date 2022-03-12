@@ -1,4 +1,4 @@
-local function configure_clipboard_image()
+return function ()
   require'clipboard-image'.setup{
     default = {
       img_name = function ()
@@ -17,7 +17,3 @@ local function configure_clipboard_image()
     }
   }
 end
-
-return {
-  config = configure_clipboard_image
-}
