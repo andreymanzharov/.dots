@@ -43,6 +43,8 @@ return function ()
   vim.api.nvim_set_keymap('n', '<space><f12>', '<cmd>Telescope treesitter<cr>', opts)
   vim.api.nvim_set_keymap('n', '<leader>ts', '<cmd>Telescope treesitter<cr>', opts)
 
+  vim.api.nvim_set_keymap('n', '<leader>h', [[<cmd>lua require'telescope.builtin'.help_tags()<cr>]], opts)
+
   local config = vim.fn.stdpath('config')
   vim.api.nvim_set_keymap('n', '<leader>ev', '<cmd>Telescope find_files cwd='..config..'<cr>', opts)
 end

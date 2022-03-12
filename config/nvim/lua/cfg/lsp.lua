@@ -12,6 +12,8 @@ return function ()
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', [[<cmd>Telescope lsp_implementations theme=dropdown<cr>]], opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', [[<cmd>Telescope lsp_references theme=dropdown<cr>]], opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'ga', [[<cmd>Telescope lsp_code_actions theme=dropdown<cr>]], opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gS', [[<cmd>Telescope lsp_workspace_symbols theme=dropdown<cr>]], opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gs', [[<cmd>Telescope lsp_document_symbols theme=dropdown<cr>]], opts)
 
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>', [[<cmd>lua vim.lsp.buf.definition()<cr>]], opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
