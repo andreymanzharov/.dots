@@ -29,12 +29,15 @@ return function ()
           }
         }
       },
+      help_tags = {
+        theme = 'dropdown'
+      },
+      live_grep = {
+	theme = 'dropdown'
+      },
       treesitter = {
         theme = 'dropdown'
       },
-      help_tags = {
-        theme = 'dropdown'
-      }
     }
   }
 
@@ -47,6 +50,7 @@ return function ()
   vim.api.nvim_set_keymap('n', '<leader>ts', '<cmd>Telescope treesitter<cr>', opts)
 
   vim.api.nvim_set_keymap('n', '<leader>h', [[<cmd>lua require'telescope.builtin'.help_tags()<cr>]], opts)
+  vim.api.nvim_set_keymap('n', '<leader>lg', [[<cmd>lua require'telescope.builtin'.live_grep()<cr>]], opts)
 
   local config = vim.fn.stdpath('config')
   vim.api.nvim_set_keymap('n', '<leader>ev', '<cmd>Telescope find_files cwd='..config..'<cr>', opts)
