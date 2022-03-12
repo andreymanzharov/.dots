@@ -49,9 +49,12 @@ return require'packer'.startup(function ()
   }
 
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = require'cfg.treesitter'.config
+    {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      config = function () require'cfg.treesitter'() end
+    },
+    'nvim-treesitter/nvim-treesitter-textobjects'
   }
 
   use {
