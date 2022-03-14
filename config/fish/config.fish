@@ -32,8 +32,11 @@ if status is-interactive
   abbr --add --global l exa -lah
   abbr --add --global la exa -lah
   abbr --add --global ls exa -lh
+  abbr --add --global lt exa -lahT
 
   abbr --add --global md mkdir -p
+
+  abbr --add --global sc systemctl
 
   function take
     mkdir -p $argv; and cd $argv
