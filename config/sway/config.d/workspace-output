@@ -1,0 +1,5 @@
+workspace 1 output HDMI-A-1
+workspace 2:web output HDMI-A-1
+workspace 3:ide output HDMI-A-1
+workspace 9:mail output DP-1
+workspace 10:nightly output DP-1

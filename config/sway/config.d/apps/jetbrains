@@ -1,0 +1,11 @@
+for_window [class="^jetbrains\-"] \
+    move container to workspace 3:ide
+for_window [class="^jetbrains\-|java-util-concurrent-ForkJoinWorkerThread" title="win0"] \
+    floating enable, \
+    border none
+for_window [class="^jetbrains\-" title="^Welcome to"] \
+    floating enable
+
+for_window [class="jetbrains-toolbox"] \
+    move container to workspace 3:ide, \
+    border none

@@ -1,0 +1,18 @@
+for_window [app_id="firefox"] \
+    move container to workspace 2:web, \
+    border none
+
+for_window [app_id="firefox-nightly"] \
+    move container to workspace 10:nightly, \
+    border none
+for_window [app_id="firefox-nightly" title="Picture-in-Picture"] \
+    floating enable, \
+    sticky enable
+
+for_window [app_id="thunderbird"]  \
+    move container to workspace 9:mail, \
+    border none
+
+for_window [app_id="^(firefox|thunderbird)" title="^About "] \
+    floating enable, \
+    border none
