@@ -4,8 +4,6 @@ nnoremap <leader>sv :action IdeaVim.ReloadVimRc.reload<cr>
 
 set ignorecase
 set incsearch
-set number
-set relativenumber
 set smartcase
 
 set clipboard+=unnamed
