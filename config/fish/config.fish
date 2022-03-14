@@ -4,11 +4,6 @@ if status is-interactive
   set BASE16_SHELL "$HOME/.config/base16-shell/"
   source "$BASE16_SHELL/profile_helper.fish"
 
-  abbr --add --global e vi
-  if test -n "$VISUAL"
-    abbr --add --global ev $VISUAL
-  end
-
   abbr --add --global gbsup git branch --set-upstream-to=origin/\(git-current-branch\)
   abbr --add --global gc git commit -v
   abbr --add --global gca git commit -v -a
