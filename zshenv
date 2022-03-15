@@ -23,9 +23,10 @@ java_tool_options_proxy() {
 java_tool_options_proxy http
 java_tool_options_proxy https
 unfunction java_tool_options_proxy
-java_tool_options+=-Dhttp.nonProxyHosts=${no_proxy//,/|}
 
-export JAVA_TOOL_OPTIONS=$java_tool_options
+[[ -n $no_proxy ]] && java_tool_options+=-Dhttp.nonProxyHosts=${no_proxy//,/|}
+
+[[ ${#java_tool_options} -gt 0 ]] && export JAVA_TOOL_OPTIONS=$java_tool_options
 
 export MAVEN_HOME="/usr/local/stow/apache-maven-3.8.5"
 export MAVEN_OPTS="-Xmx2g -Xshare:on -XX:+UseParallelGC"
