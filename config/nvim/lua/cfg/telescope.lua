@@ -27,7 +27,11 @@ return function ()
           n = {
             ['<c-d>'] = 'git_delete_branch'
           }
-        }
+        },
+        theme = 'dropdown'
+      },
+      git_commits = {
+        theme = 'dropdown'
       },
       help_tags = {
         theme = 'dropdown'
@@ -51,6 +55,9 @@ return function ()
 
   vim.api.nvim_set_keymap('n', '<leader>h', [[<cmd>lua require'telescope.builtin'.help_tags()<cr>]], opts)
   vim.api.nvim_set_keymap('n', '<leader>lg', [[<cmd>lua require'telescope.builtin'.live_grep()<cr>]], opts)
+
+  vim.api.nvim_set_keymap('n', '<leader><leader>', [[<cmd>lua require'telescope.builtin'.git_files()<cr>]], opts)
+  vim.api.nvim_set_keymap('n', '<leader>gl', [[<cmd>lua require'telescope.builtin'.git_commits()<cr>]], opts)
 
   local config = vim.fn.stdpath('config')
   vim.api.nvim_set_keymap('n', '<leader>ev', '<cmd>Telescope find_files cwd='..config..'<cr>', opts)
