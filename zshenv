@@ -7,6 +7,11 @@ export GIT_EDITOR=$EDITOR
 
 java_tool_options=()
 
+if [[ `uname -s` = Linux ]]; then
+  java_tool_options+=-Dswing.aatext=true
+  java_tool_options+=-Dawt.useSystemAAFontSettings=lcd
+fi
+
 java_tool_options_proxy() {
   local proxy=${${(P)1}_proxy}
   [[ -z $proxy ]] && return
