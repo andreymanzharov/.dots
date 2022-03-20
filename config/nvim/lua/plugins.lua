@@ -28,11 +28,6 @@ return require'packer'.startup(function ()
   }
 
   use {
-    'qpkorr/vim-bufkill',
-    config = 'vim.g.BufKillOverrideCtrlCaret = true'
-  }
-
-  use {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-vsnip',
