@@ -39,7 +39,7 @@ if type bat > /dev/null; then
   alias b='bat'
 fi
 
-alias e=$EDITOR
+alias e=${EDITOR:-nvim}
 if type $VISUAL > /dev/null; then
   alias ev='neovide'
 fi
