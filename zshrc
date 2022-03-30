@@ -13,6 +13,7 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/brew
   fi
   if [[ $(uname -s) = Linux ]]; then
+    zgenom ohmyzsh plugins/ssh-agent
     zgenom ohmyzsh plugins/systemd
     zgenom ohmyzsh plugins/tmux
   fi
