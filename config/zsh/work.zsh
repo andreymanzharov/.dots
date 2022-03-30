@@ -138,6 +138,24 @@ pull_all () {
   done
 }
 
+fetch_all () {
+  if [[ -d $PWD/.git || -d $PWD/.hg ]]; then
+    local p=$PWD:h
+  else
+    local p=$PWD
+  fi
+  for r in $p/*(/); do
+    if [[ -d $r/.git ]]; then
+       echo $fg[yellow]$r$reset_color
+       git -C $r fetch --all --prune --jobs=10
+    fi
+    if [[ -d $r/.hg ]]; then
+       echo $fg[yellow]$r$reset_color
+      hg -R $r pull -b. -bdefault
+    fi
+  done
+}
+
 mounts () {
   sudo mount --bind "$HOME/Dev" /w
   sudo mount --bind "$HOME/Work" /x
