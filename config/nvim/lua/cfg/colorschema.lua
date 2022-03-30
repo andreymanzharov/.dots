@@ -9,15 +9,15 @@ return function ()
     vim.cmd[[colorscheme base16-gruvbox-dark-hard]]
   end
 
-  vim.cmd[[
-    hi Normal ctermbg=none
-    hi NonText ctermbg=none
-  ]]
-
   require'lualine'.setup{
     options = {
       icons_enabled = false,
       theme = 'gruvbox'
     }
   }
+
+  if vim.fn.has('nvim-0.7') == 1 then
+    vim.opt.laststatus = 3
+    vim.cmd[[hi WinSeparator guibg=none]]
+  end
 end
