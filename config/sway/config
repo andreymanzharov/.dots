@@ -18,7 +18,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn Ubuntu' | xargs swaymsg exec --
+set $menu sirula
 
 seat seat0 xcursor_theme Adwaita 24
 
@@ -229,7 +229,6 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    #status_command while date +'%h %d %H:%M:%S %p'; do sleep 1; done
     status_command i3status
 
     colors {
