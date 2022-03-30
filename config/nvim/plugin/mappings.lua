@@ -39,7 +39,7 @@ vim.api.nvim_set_keymap('t', '<c-j>', '<c-\\><c-n>', opts)
 vim.api.nvim_set_keymap('t', '<c-h>', '<c-\\><c-n><c-w>h', opts)
 vim.api.nvim_set_keymap('t', '<c-l>', '<c-\\><c-n><c-w>l', opts)
 
-vim.api.nvim_set_keymap('n', 'M', '<cmd>make -j<cr>', opts)
+vim.api.nvim_set_keymap('n', 'M', '<cmd>make<cr>', opts)
 
 vim.api.nvim_set_keymap('n', '<c-a-j>', '<cmd>cnext<cr>', opts)
 vim.api.nvim_set_keymap('n', '<c-a-k>', '<cmd>cprev<cr>', opts)
