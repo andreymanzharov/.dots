@@ -1,9 +1,13 @@
 set $ps1 Print
 set $ps2 Control+Print
-set $ps3 Alt+Print
-set $ps4 Alt+Control+Print
+set $ps3 Control+Shift+Print
+set $ps4 Alt+Print
+set $ps5 Alt+Control+Print
+set $ps6 Alt+Control+Shift+Print
 
-bindsym $ps1 exec grim - | wl-copy
-bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
-bindsym $ps3 exec grim $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
-bindsym $ps4 exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
+bindsym $ps1 exec grimshot --notify copy screen
+bindsym $ps2 exec grimshot --notify copy window
+bindsym $ps3 exec grimshot --notify copy area
+bindsym $ps4 exec grimshot --notify save screen $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
+bindsym $ps5 exec grimshot --notify save window $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
+bindsym $ps6 exec grimshot --notify save area $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
