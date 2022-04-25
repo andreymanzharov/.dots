@@ -9,6 +9,7 @@ vim.opt.formatoptions = vim.opt.formatoptions
 vim.opt.gdefault = true
 vim.opt.hidden = true
 vim.opt.ignorecase = true
+vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars = {tab = '→ ', trail = '·', eol = '↲', nbsp = '␣', extends = '…'}
 vim.opt.number = true

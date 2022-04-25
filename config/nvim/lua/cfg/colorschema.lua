@@ -16,8 +16,5 @@ return function ()
     }
   }
 
-  if vim.fn.has('nvim-0.7') == 1 then
-    vim.opt.laststatus = 3
-    vim.cmd[[hi WinSeparator guibg=none]]
-  end
+  vim.cmd[[hi WinSeparator guibg=none]]
 end
