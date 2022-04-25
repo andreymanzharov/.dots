@@ -23,7 +23,10 @@ return function ()
 
     if client.resolved_capabilities.document_formatting then
       vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-      vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        callback = function () vim.lsp.buf.formatting_sync() end,
+      })
     end
     if client.resolved_capabilities.document_range_formatting then
       vim.api.nvim_buf_set_keymap(bufnr, "v", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)

@@ -12,18 +12,24 @@ vim.cmd[[
   syntax enable
 ]]
 
-vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]]
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  command = [[%substitute/\s\+$//e]],
+})
 
-vim.cmd[[
-  autocmd UIEnter *
-        \ let g:neovide_cursor_vfx_mode = "pixiedust" |
-        \ set guifont=monospace |
-        \
-]]
+vim.api.nvim_create_augroup("Neovide", {})
+vim.api.nvim_create_autocmd("UIEnter", {
+  group = "Neovide",
+  pattern = "*",
+  callback = function ()
+    vim.g.neovide_cursor_vfx_mode = "pixiedust"
+    vim.opt.guifont = "monospace"
+  end,
+})
 
-vim.cmd[[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]]
+vim.api.nvim_create_augroup("YankHighlight", {})
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = "YankHighlight",
+  pattern = "*",
+  callback = function () vim.highlight.on_yank() end,
+})
