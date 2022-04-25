@@ -1,35 +1,37 @@
 return function ()
-  local opts = { noremap = true, silent = true }
-
-  vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-  vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-  vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
-  vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<cr>', opts)
+  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
   local lsp = require'lspconfig'
   local on_attach = function(client, bufnr)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', [[<cmd>Telescope lsp_type_definitions theme=dropdown<cr>]], opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', [[<cmd>Telescope lsp_implementations theme=dropdown<cr>]], opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', [[<cmd>Telescope lsp_references theme=dropdown<cr>]], opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'ga', [[<cmd>Telescope lsp_code_actions theme=dropdown<cr>]], opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gS', [[<cmd>Telescope lsp_workspace_symbols theme=dropdown<cr>]], opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gs', [[<cmd>Telescope lsp_document_symbols theme=dropdown<cr>]], opts)
+    local opts = { buffer = bufnr }
+    local builtin = require'telescope.builtin'
+    local themes = require'telescope.themes'
 
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>', [[<cmd>lua vim.lsp.buf.definition()<cr>]], opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-p>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    vim.keymap.set('n', 'gD', function () builtin.lsp_type_definitions(themes.get_dropdown{}) end, opts)
+    vim.keymap.set('n', 'gi', function () builtin.lsp_implementations(themes.get_dropdown{}) end, opts)
+    vim.keymap.set('n', 'gr', function () builtin.lsp_references(themes.get_dropdown{}) end, opts)
+    vim.keymap.set('n', 'ga', function () builtin.lsp_code_actions(themes.get_cursor{}) end, opts)
+    vim.keymap.set('n', 'gS', function () builtin.lsp_workspace_symbols(themes.get_dropdown{}) end, opts)
+    vim.keymap.set('n', 'gs', function () builtin.lsp_document_symbols(themes.get_dropdown{}) end, opts)
+
+    vim.keymap.set('n', '<c-]>', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<c-p>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 
     if client.resolved_capabilities.document_formatting then
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-      vim.api.nvim_create_autocmd("BufWritePre", {
+      vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)
+      vim.api.nvim_create_autocmd('BufWritePre', {
         buffer = bufnr,
         callback = function () vim.lsp.buf.formatting_sync() end,
       })
     end
     if client.resolved_capabilities.document_range_formatting then
-      vim.api.nvim_buf_set_keymap(bufnr, "v", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+      vim.keymap.set('v', '<space>f', vim.lsp.buf.range_formatting, opts)
     end
   end
 

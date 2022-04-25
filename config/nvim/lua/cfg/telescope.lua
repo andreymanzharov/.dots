@@ -6,7 +6,8 @@ return function ()
           ['<c-j>'] = 'move_selection_next',
           ['<c-k>'] = 'move_selection_previous'
         }
-      }
+      },
+      winblend = 15,
     },
     pickers = {
       buffers = {
@@ -27,38 +28,30 @@ return function ()
           n = {
             ['<c-d>'] = 'git_delete_branch'
           }
-        },
-        theme = 'dropdown'
-      },
-      git_commits = {
-        theme = 'dropdown'
-      },
-      help_tags = {
-        theme = 'dropdown'
-      },
-      live_grep = {
-	theme = 'dropdown'
-      },
-      treesitter = {
-        theme = 'dropdown'
-      },
+        }
+      }
     }
   }
 
-  local opts = { noremap = true, silent = true }
+  local opts = { noremap = true }
+  local builtin = require'telescope.builtin'
+  local themes = require'telescope.themes'
 
-  vim.api.nvim_set_keymap('n', '<c-n>', '<cmd>Telescope find_files<cr>', opts)
-  vim.api.nvim_set_keymap('n', '<c-e>', '<cmd>Telescope buffers<cr>', opts)
+  vim.keymap.set('n', '<c-n>', function () builtin.find_files(themes.get_dropdown{}) end)
+  vim.keymap.set('n', '<c-e>', function () builtin.buffers(themes.get_dropdown{}) end)
 
-  vim.api.nvim_set_keymap('n', '<space><f12>', '<cmd>Telescope treesitter<cr>', opts)
-  vim.api.nvim_set_keymap('n', '<leader>ts', '<cmd>Telescope treesitter<cr>', opts)
+  vim.keymap.set('n', '<leader>ts', function () builtin.treesitter(themes.get_dropdown{}) end)
 
-  vim.api.nvim_set_keymap('n', '<leader>h', [[<cmd>lua require'telescope.builtin'.help_tags()<cr>]], opts)
-  vim.api.nvim_set_keymap('n', '<leader>lg', [[<cmd>lua require'telescope.builtin'.live_grep()<cr>]], opts)
+  vim.keymap.set('n', '<leader>h', function () builtin.help_tags(themes.get_dropdown{}) end)
+  vim.keymap.set('n', '<leader>lg', function () builtin.live_grep(themes.get_dropdown{}) end)
 
-  vim.api.nvim_set_keymap('n', '<leader><leader>', [[<cmd>lua require'telescope.builtin'.git_files()<cr>]], opts)
-  vim.api.nvim_set_keymap('n', '<leader>gl', [[<cmd>lua require'telescope.builtin'.git_commits()<cr>]], opts)
+  vim.keymap.set('n', '<leader><leader>', function () builtin.git_files(themes.get_dropdown{}) end)
+  vim.keymap.set('n', '<leader>gl', function () builtin.git_commits(themes.get_dropdown{}) end)
 
   local config = vim.fn.stdpath('config')
-  vim.api.nvim_set_keymap('n', '<leader>ev', '<cmd>Telescope find_files cwd='..config..'<cr>', opts)
+  vim.keymap.set('n', '<leader>ev', function ()
+    builtin.find_files(themes.get_dropdown{
+      cwd = config
+    })
+  end)
 end

@@ -1,45 +1,39 @@
-local opts = {noremap = true, silent = true}
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
-vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
-vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
+vim.keymap.set('n', 'Q', '<nop>')
+vim.keymap.set('n', 'gQ', '<nop>')
 
-vim.api.nvim_set_keymap('n', 'Q', '<nop>', opts)
-vim.api.nvim_set_keymap('n', 'gQ', '<nop>', opts)
+vim.keymap.set({'n', 'v'}, ';', ':')
 
-vim.api.nvim_set_keymap('n', ';', ':', {noremap = true})
-vim.api.nvim_set_keymap('v', ';', ':', {noremap = true})
+vim.keymap.set({'n', 'i'}, '<f2>', '<cmd>update<cr>')
+vim.keymap.set('n', '<leader>w', '<cmd>update<cr>')
 
-vim.api.nvim_set_keymap('n', '<f2>', '<cmd>update<cr>', opts)
-vim.api.nvim_set_keymap('i', '<f2>', '<cmd>update<cr>', opts)
-vim.api.nvim_set_keymap('n', '<leader>w', '<cmd>update<cr>', opts)
-
-vim.api.nvim_set_keymap('n', '<leader>cd', '<cmd>lcd %:h<cr>', opts)
+vim.keymap.set('n', '<leader>cd', '<cmd>lcd %:h<cr>')
 
 if vim.fn.has('unix') == 1 then
-  vim.api.nvim_set_keymap('n', '<leader>md', '<cmd>!mkdir -p %:p:h<cr>', opts)
-  vim.api.nvim_set_keymap('n', '<leader>x', '<cmd>!chmod u+x %<cr>', opts)
+  vim.keymap.set('n', '<leader>md', '<cmd>!mkdir -p %:p:h<cr>')
+  vim.keymap.set('n', '<leader>x', '<cmd>!chmod u+x %<cr>')
 end
 
-vim.api.nvim_set_keymap('n', '<leader>n', '<cmd>nohlsearch<cr>', opts)
-vim.api.nvim_set_keymap('n', '<cr>', '<cmd>nohlsearch<cr><cr>', opts)
+vim.keymap.set('n', '<leader>n', '<cmd>nohlsearch<cr>')
+vim.keymap.set('n', '<cr>', '<cmd>nohlsearch<cr><cr>')
 
-vim.api.nvim_set_keymap('n', '<leader>y', '"+y', opts)
-vim.api.nvim_set_keymap('v', '<leader>y', '"+y', opts)
-vim.api.nvim_set_keymap('n', '<leader>p', '"+p', opts)
-vim.api.nvim_set_keymap('v', '<leader>p', '"+p', opts)
-vim.api.nvim_set_keymap('n', '<leader>P', '"+P', opts)
+vim.keymap.set({'n', 'v'}, '<leader>y', [["+y]])
+vim.keymap.set({'n', 'v'}, '<leader>p', [["+p]])
+vim.keymap.set('n', '<leader>P', [["+P]])
 
-vim.api.nvim_set_keymap('n', '<c-h>', '<c-w>h', opts)
-vim.api.nvim_set_keymap('n', '<c-j>', '<c-w>j', opts)
-vim.api.nvim_set_keymap('n', '<c-k>', '<c-w>k', opts)
-vim.api.nvim_set_keymap('n', '<c-l>', '<c-w>l', opts)
+for _, d in ipairs({'h', 'j', 'k', 'l'}) do
+  vim.keymap.set('n', '<c-'..d..'>', '<c-w>'..d)
+end
 
-vim.api.nvim_set_keymap('t', '<esc>', '<c-\\><c-n>', opts)
-vim.api.nvim_set_keymap('t', '<c-j>', '<c-\\><c-n>', opts)
-vim.api.nvim_set_keymap('t', '<c-h>', '<c-\\><c-n><c-w>h', opts)
-vim.api.nvim_set_keymap('t', '<c-l>', '<c-\\><c-n><c-w>l', opts)
+vim.keymap.set('t', '<esc>', [[<c-\><c-n>]])
+vim.keymap.set('t', '<c-j>', [[<c-\><c-n>]])
+for _, d in ipairs({'h', 'l'}) do
+  vim.keymap.set('n', '<c-'..d..'>', [[<c-\><c-n><c-w>]]..d)
+end
 
-vim.api.nvim_set_keymap('n', 'M', '<cmd>make<cr>', opts)
+vim.keymap.set('n', 'M', '<cmd>make<cr>')
 
-vim.api.nvim_set_keymap('n', '<c-a-j>', '<cmd>cnext<cr>', opts)
-vim.api.nvim_set_keymap('n', '<c-a-k>', '<cmd>cprev<cr>', opts)
+vim.keymap.set('n', '<c-a-j>', '<cmd>cnext<cr>')
+vim.keymap.set('n', '<c-a-k>', '<cmd>cprev<cr>')
