@@ -22,7 +22,8 @@ vim.api.nvim_create_autocmd("UIEnter", {
   group = "Neovide",
   pattern = "*",
   callback = function ()
-    vim.g.neovide_cursor_vfx_mode = "pixiedust"
+    vim.g.neovide_transparency = 0.9
+    vim.g.neovide_cursor_vfx_mode = "railgun"
     vim.opt.guifont = "monospace"
   end,
 })
