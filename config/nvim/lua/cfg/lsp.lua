@@ -4,7 +4,6 @@ return function ()
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
-  local lsp = require'lspconfig'
   local on_attach = function(client, bufnr)
     local opts = { buffer = bufnr }
     local builtin = require'telescope.builtin'
@@ -35,14 +34,11 @@ return function ()
     end
   end
 
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
-
+  local lsp_config = require'lspconfig'
   local servers = { 'clangd', 'gopls', 'zls', 'pylsp', 'rust_analyzer' }
   for _, server in ipairs(servers) do
-    lsp[server].setup{
+    lsp_config[server].setup{
       on_attach = on_attach,
-      capabilities = capabilities
     }
   end
 end
