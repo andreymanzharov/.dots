@@ -22,23 +22,27 @@ return function ()
     vim.keymap.set('n', '<c-p>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.document_formatting then
       vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)
       vim.api.nvim_create_autocmd('BufWritePre', {
         buffer = bufnr,
         callback = function () vim.lsp.buf.formatting_sync() end,
       })
     end
-    if client.resolved_capabilities.document_range_formatting then
+    if client.server_capabilities.document_range_formatting then
       vim.keymap.set('v', '<space>f', vim.lsp.buf.range_formatting, opts)
     end
   end
+
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
 
   local lsp_config = require'lspconfig'
   local servers = { 'clangd', 'gopls', 'zls', 'pylsp', 'rust_analyzer' }
   for _, server in ipairs(servers) do
     lsp_config[server].setup{
       on_attach = on_attach,
+      capabilities = capabilities
     }
   end
 end
