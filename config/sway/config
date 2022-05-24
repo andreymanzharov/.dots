@@ -36,7 +36,7 @@ gaps inner 4
 mouse_warping none
 smart_borders no_gaps
 smart_gaps inverse_outer
-workspace_layout tabbed
+workspace_layout default
 xwayland enable
 
 exec swaykbdd
