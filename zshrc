@@ -5,6 +5,7 @@ zgenom autoupdate
 if ! zgenom saved; then
   zgenom ohmyzsh
 
+  zgenom ohmyzsh plugins/dirhistory
   zgenom ohmyzsh plugins/extract
   zgenom ohmyzsh plugins/git
   zgenom ohmyzsh plugins/mercurial
