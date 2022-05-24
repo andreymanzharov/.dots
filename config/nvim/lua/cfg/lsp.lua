@@ -13,7 +13,7 @@ return function ()
     vim.keymap.set('n', 'gD', function () builtin.lsp_type_definitions(themes.get_dropdown{}) end, opts)
     vim.keymap.set('n', 'gi', function () builtin.lsp_implementations(themes.get_dropdown{}) end, opts)
     vim.keymap.set('n', 'gr', function () builtin.lsp_references(themes.get_dropdown{}) end, opts)
-    vim.keymap.set('n', 'ga', function () builtin.lsp_code_actions(themes.get_cursor{}) end, opts)
+    vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gS', function () builtin.lsp_workspace_symbols(themes.get_dropdown{}) end, opts)
     vim.keymap.set('n', 'gs', function () builtin.lsp_document_symbols(themes.get_dropdown{}) end, opts)
 
