@@ -24,6 +24,9 @@ vim.opt.splitright = true
 vim.opt.updatetime = 300
 vim.opt.virtualedit = 'onemore'
 vim.opt.visualbell = true
+if vim.fn.has('nvim-0.8') == 1 then
+  vim.opt.winbar = '%=%m %f'
+end
 vim.opt.wildmode = {'full', 'full'}
 vim.opt.winwidth = 80
 vim.opt.wrap = false
