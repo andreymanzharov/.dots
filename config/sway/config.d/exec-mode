@@ -2,7 +2,7 @@ mode "exec" {
     bindsym Return exec $term; mode "default"
 
     bindsym --to-code f exec firefox; workspace number 2:web; mode "default"
-    bindsym --to-code n exec ~/Tools/firefox/firefox --name firefox-nightly; workspace number 10:nightly; mode "default"
+    bindsym --to-code n exec ~/tools/firefox/firefox --name firefox-nightly; workspace number 10:nightly; mode "default"
     bindsym --to-code m exec thunderbird; workspace number 9:mail; mode "default"
     bindsym --to-code t exec telegram-desktop; mode "default"
 
