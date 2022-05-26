@@ -13,6 +13,6 @@ for_window [app_id="thunderbird"]  \
     move container to workspace 9:mail, \
     border none
 
-for_window [app_id="^(firefox|thunderbird)" title="^About "] \
+for_window [app_id="^(firefox|thunderbird)" title="About (Mozilla Firefox|Firefox Nightly|Mozilla Thunderbird)"] \
     floating enable, \
     border none
