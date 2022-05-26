@@ -1,6 +1,6 @@
 return function ()
   require'nvim-treesitter.configs'.setup{
-    ensure_installed = { 'c', 'cpp', 'go', 'java', 'lua', 'python', 'rust', 'vim' },
+    ensure_installed = { 'c', 'cpp', 'go', 'java', 'lua', 'python', 'rust', 'vim', 'zig' },
     highlight = {
       enable = true
     },
