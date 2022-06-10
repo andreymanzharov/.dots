@@ -1,0 +1,2 @@
+for_window [app_id="org.gnome.Nautilus"] \
+    floating enable
