@@ -128,29 +128,39 @@ bindsym --to-code $mod+alt+l exec swaylock -f -c 000000
 #
 # Workspaces:
 #
+    set $w01 1
+    set $w02 2:web
+    set $w03 3:ide
+    set $w04 4
+    set $w05 5
+    set $w06 6
+    set $w07 7
+    set $w08 8
+    set $w09 9:mail
+    set $w10 10:nightly
     # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2:web
-    bindsym $mod+3 workspace number 3:ide
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9:mail
-    bindsym $mod+0 workspace number 10:nightly
+    bindsym $mod+1 workspace number $w01
+    bindsym $mod+2 workspace number $w02
+    bindsym $mod+3 workspace number $w03
+    bindsym $mod+4 workspace number $w04
+    bindsym $mod+5 workspace number $w05
+    bindsym $mod+6 workspace number $w06
+    bindsym $mod+7 workspace number $w07
+    bindsym $mod+8 workspace number $w08
+    bindsym $mod+9 workspace number $w09
+    bindsym $mod+0 workspace number $w10
     bindsym --to-code $mod+slash workspace video
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2:web
-    bindsym $mod+Shift+3 move container to workspace number 3:ide
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9:mail
-    bindsym $mod+Shift+0 move container to workspace number 10:nightly
+    # bindsym $mod+Shift+1 move container to workspace number 1
+    # bindsym $mod+Shift+2 move container to workspace number 2:web
+    # bindsym $mod+Shift+3 move container to workspace number 3:ide
+    # bindsym $mod+Shift+4 move container to workspace number 4
+    # bindsym $mod+Shift+5 move container to workspace number 5
+    # bindsym $mod+Shift+6 move container to workspace number 6
+    # bindsym $mod+Shift+7 move container to workspace number 7
+    # bindsym $mod+Shift+8 move container to workspace number 8
+    # bindsym $mod+Shift+9 move container to workspace number 9:mail
+    # bindsym $mod+Shift+0 move container to workspace number 10:nightly
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
@@ -220,6 +230,28 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+#
+# Moving containers
+#
+mode "move" {
+    # Move focused container to workspace
+    bindsym --to-code 1 move container to workspace number $w01; mode "default"; workspace number $w01
+    bindsym --to-code 2 move container to workspace number $w02; mode "default"; workspace number $w02
+    bindsym --to-code 3 move container to workspace number $w03; mode "default"; workspace number $w03
+    bindsym --to-code 4 move container to workspace number $w04; mode "default"; workspace number $w04
+    bindsym --to-code 5 move container to workspace number $w05; mode "default"; workspace number $w05
+    bindsym --to-code 6 move container to workspace number $w06; mode "default"; workspace number $w06
+    bindsym --to-code 7 move container to workspace number $w07; mode "default"; workspace number $w07
+    bindsym --to-code 8 move container to workspace number $w08; mode "default"; workspace number $w08
+    bindsym --to-code 9 move container to workspace number $w09; mode "default"; workspace number $w09
+    bindsym --to-code 0 move container to workspace number $w10; mode "default"; workspace number $w10
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym --to-code $mod+m mode "move"
 
 # Status Bar:
 #
