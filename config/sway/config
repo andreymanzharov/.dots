@@ -279,5 +279,5 @@ include config.d/workspace-output
 include config.d/print-screen
 include config.d/apps/*
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
 exec systemctl start --user wob.socket
