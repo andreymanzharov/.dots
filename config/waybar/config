@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "disk#root", "disk#home", "disk#docker", "temperature", "clock", "sway/language", "tray"],
+    "modules-right": ["cpu", "temperature", "memory", "disk#root", "disk#home", "disk#docker", "pulseaudio", "network", "idle_inhibitor", "clock", "sway/language", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
