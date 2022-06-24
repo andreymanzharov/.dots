@@ -50,16 +50,17 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: #323232;
+    color: #b59a58;
+    box-shadow: inset 0 -3px #f2c40e;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #b59a58;
 }
 
 #mode {
-    background-color: #64727D;
+    background-color: #58b59a;
     border-bottom: 3px solid #ffffff;
 }
 
@@ -135,7 +136,7 @@ label:focus {
     background-color: #323232;
 }
 #cpu.warning {
-    color: #f1c40f;
+    color: #b59a58;
 }
 #cpu.critical {
     color: #9b59b6;
@@ -145,7 +146,7 @@ label:focus {
     background-color: #323232;
 }
 #memory.warning {
-    color: #f1c40f;
+    color: #b59a58;
 }
 #memory.critical {
     color: #9b59b6;
