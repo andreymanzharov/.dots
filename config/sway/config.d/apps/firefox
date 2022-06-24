@@ -1,16 +1,16 @@
 for_window [app_id="firefox"] \
-    move container to workspace 2:web, \
+    move container to workspace $w02, \
     border none
 
 for_window [app_id="firefox-nightly"] \
-    move container to workspace 10:nightly, \
+    move container to workspace $w10, \
     border none
 for_window [app_id="firefox-nightly" title="Picture-in-Picture"] \
     floating enable, \
     sticky enable
 
 for_window [app_id="thunderbird"]  \
-    move container to workspace 9:mail, \
+    move container to workspace $w09, \
     border none
 
 for_window [app_id="^(firefox|thunderbird)" title="About (Mozilla Firefox|Firefox Nightly|Mozilla Thunderbird)"] \

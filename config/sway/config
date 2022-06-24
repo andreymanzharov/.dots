@@ -129,15 +129,15 @@ bindsym --to-code $mod+alt+l exec swaylock -f -c 000000
 # Workspaces:
 #
     set $w01 1
-    set $w02 2:web
-    set $w03 3:ide
+    set $w02 2
+    set $w03 3
     set $w04 4
     set $w05 5
     set $w06 6
     set $w07 7
     set $w08 8
-    set $w09 9:mail
-    set $w10 10:nightly
+    set $w09 9
+    set $w10 10
     # Switch to workspace
     bindsym $mod+1 workspace number $w01
     bindsym $mod+2 workspace number $w02
