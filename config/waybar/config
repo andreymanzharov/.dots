@@ -51,7 +51,7 @@
     "clock": {
         "interval": 20,
         "format": "{:%Y-%m-%d %H:%M}",
-        "today-format": "<span color='#f1c40f'><b><u>{}</u></b></span>",
+        "today-format": "<span color='#b59a58'><b><u>{}</u></b></span>",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
     },
     "cpu": {
