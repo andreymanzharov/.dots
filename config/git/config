@@ -18,6 +18,8 @@
 	hunk-header-decoration-style =
 [pull]
 	ff = only
-[maintenance]
-	repo = /x/fkc/fkc
-	repo = /w/third/jdk
+[include]
+	path = config.local
+	path = config.gh.local
+[includeIf "hasconfig:remote.*.url]:**/ntp-gitlab.krista.ru/**"]
+	path = config.ntp-gitlab.local
