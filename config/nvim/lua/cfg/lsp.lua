@@ -22,14 +22,14 @@ return function ()
     vim.keymap.set('n', '<c-p>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 
-    if client.server_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
       vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)
       vim.api.nvim_create_autocmd('BufWritePre', {
         buffer = bufnr,
         callback = function () vim.lsp.buf.formatting_sync() end,
       })
     end
-    if client.server_capabilities.document_range_formatting then
+    if client.server_capabilities.documentRangeFormattingProvider then
       vim.keymap.set('v', '<space>f', vim.lsp.buf.range_formatting, opts)
     end
   end
