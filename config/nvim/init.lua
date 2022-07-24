@@ -24,7 +24,9 @@ vim.api.nvim_create_autocmd("UIEnter", {
   callback = function ()
     vim.g.neovide_transparency = 0.9
     vim.g.neovide_cursor_vfx_mode = "railgun"
-    vim.opt.guifont = "monospace"
+    if vim.fn.has('macunix') then
+      vim.opt.guifont = "Iosevka:h16"
+    end
   end,
 })
 
