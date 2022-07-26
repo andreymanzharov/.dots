@@ -21,6 +21,8 @@ set textobj-indent
 set visualbell
 set noerrorbells
 
+set virtualedit=onemore
+
 sethandler <c-h> a:vim
 sethandler <c-l> a:vim
 nnoremap <c-h> <c-w>h
