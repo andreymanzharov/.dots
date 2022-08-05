@@ -27,10 +27,15 @@ seat seat0 xcursor_theme Adwaita 24
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * {
   bg ~/yandex.disk/Public/oboi.ws_grey_34.png fill
-  resolution 1920x1080
 }
-output HDMI-A-1 position 0,0
-output DP-1 position 1920,0
+output 'DELL SE2416H P7HT87C53Y1L' {
+  resolution 1920x1080
+  position 0,0
+}
+output 'DELL SE2416H P7HT87C53Y4' {
+  resolution 1920x1080
+  position 1920,0
+}
 
 gaps inner 4
 mouse_warping none
