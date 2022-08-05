@@ -37,12 +37,14 @@ output 'DELL SE2416H P7HT87C53Y4' {
   position 1920,0
 }
 
-gaps inner 4
+gaps inner 8
 mouse_warping none
 smart_borders no_gaps
 smart_gaps inverse_outer
 workspace_layout default
 xwayland enable
+
+default_border pixel 2
 
 exec swaykbdd
 exec mako
