@@ -14,9 +14,6 @@ if vim.fn.has('unix') == 1 then
   vim.keymap.set('n', '<leader>x', '<cmd>!chmod u+x %<cr>')
 end
 
-vim.keymap.set('n', '<leader>n', '<cmd>nohlsearch<cr>')
-vim.keymap.set('n', '<cr>', '<cmd>nohlsearch<cr><cr>')
-
 vim.keymap.set({'n', 'v'}, '<leader>y', [["+y]])
 vim.keymap.set({'n', 'v'}, '<leader>p', [["+p]])
 vim.keymap.set('n', '<leader>P', [["+P]])
