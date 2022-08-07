@@ -32,9 +32,9 @@ vim.api.nvim_create_autocmd("UIEnter", {
   end,
 })
 
-vim.api.nvim_create_augroup("YankHighlight", {})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = "YankHighlight",
+  group = vim.api.nvim_create_augroup("YankHighlight", {}),
   pattern = "*",
   callback = function () vim.highlight.on_yank() end,
 })
