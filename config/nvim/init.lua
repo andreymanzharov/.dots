@@ -38,3 +38,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   callback = function () vim.highlight.on_yank() end,
 })
+
+vim.api.nvim_create_user_command('ReloadConfig', function ()
+  for name, _ in pairs(package.loaded) do
+    if name:match('^cfg%.') then
+      package.loaded[name] = nil
+    end
+  end
+  dofile(vim.env.MYVIMRC)
+  vim.cmd[[runtime! plugin/**/*.lua]]
+
+  vim.notify("Configuration reloaded", vim.log.levels.INFO)
+end, {})
+vim.keymap.set('n', '<leader>sv', '<cmd>ReloadConfig<cr>')
+
