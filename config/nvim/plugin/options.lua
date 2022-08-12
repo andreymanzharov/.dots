@@ -4,10 +4,7 @@ vim.opt.breakindentopt = 'sbr,list:-1'
 vim.opt.colorcolumn = '+1'
 vim.opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
 vim.opt.cpoptions:append'$'
-vim.opt.formatoptions = vim.opt.formatoptions
-  + 'n'
-  + 'r'
-  + 'o'
+vim.opt.formatoptions:append'nro'
 vim.opt.gdefault = true
 vim.opt.hidden = true
 vim.opt.ignorecase = true
