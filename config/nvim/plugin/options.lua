@@ -7,6 +7,7 @@ vim.opt.cpoptions:append'$'
 vim.opt.formatoptions:append'nro'
 vim.opt.gdefault = true
 vim.opt.hidden = true
+vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.laststatus = 3
 vim.opt.list = true
