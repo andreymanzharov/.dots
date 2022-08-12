@@ -165,8 +165,8 @@ mounts () {
 alias curl3129='curl --proxy 127.0.0.1:3129'
 
 dl=~/downloads
-tools=~/tools
+t=~/tools
 w=~/developer
 x=~/work
 z=~/work/servers
-: ~dl ~tools ~w ~x ~z
+: ~dl ~t ~w ~x ~z
