@@ -16,7 +16,7 @@ return require'packer'.startup(function ()
 
   use {
     'chriskempson/base16-vim',
-    config = function () require'cfg.colorschema'() end
+    config = [[require'cfg.colorschema']]
   }
 
   use 'nvim-lualine/lualine.nvim'
@@ -45,7 +45,7 @@ return require'packer'.startup(function ()
 
   use {
     'neovim/nvim-lspconfig',
-    config = function () require'cfg.lsp'() end
+    config = [[require'cfg.lsp']]
   }
 
   use {
@@ -61,7 +61,7 @@ return require'packer'.startup(function ()
     {
       'nvim-telescope/telescope.nvim',
       requires = { {'nvim-lua/plenary.nvim'} },
-      config = function () require'cfg.telescope'() end
+      config = [[require'cfg.telescope']]
     },
     {
       'nvim-telescope/telescope-fzf-native.nvim',
@@ -85,7 +85,7 @@ return require'packer'.startup(function ()
     'ekickx/clipboard-image.nvim',
     opt = true,
     cmd = {'PasteImg'},
-    config = function () require'cfg.clipboard-image'() end
+    config = [[require'cfg.clipboard-image']]
   }
 
   use {'dag/vim-fish', ft = {'fish'}}
