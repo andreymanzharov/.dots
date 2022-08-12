@@ -39,7 +39,7 @@ return require'packer'.startup(function ()
     'saadparwaiz1/cmp_luasnip',
     {
       'hrsh7th/nvim-cmp',
-      config = function () require'cfg.completion'() end
+      config = [[require'cfg.completion']]
     }
   }
 
