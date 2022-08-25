@@ -1,6 +1,6 @@
-require'clipboard-image'.setup{
+require 'clipboard-image'.setup {
   default = {
-    img_name = function ()
+    img_name = function()
       vim.fn.inputsave()
       local name = vim.fn.input('Save image as: ')
       vim.fn.inputrestore()
@@ -8,7 +8,7 @@ require'clipboard-image'.setup{
     end,
   },
   asciidoc = {
-    img_dir = function ()
+    img_dir = function()
       return vim.fn.expand('%:r')
     end,
     img_dir_txt = "{docname}",

@@ -1,6 +1,6 @@
-local cmp = require'cmp'
-local ls = require'luasnip'
-cmp.setup{
+local cmp = require 'cmp'
+local ls = require 'luasnip'
+cmp.setup {
   completion = {
     autocomplete = false,
   },
@@ -25,7 +25,11 @@ cmp.setup{
     },
     {
       { name = 'luasnip' },
-      { name = 'emoji' },
+      { name = 'emoji',
+        option = {
+          insert = true,
+        },
+      },
       { name = 'buffer' },
     }
   ),

@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup{
+require 'nvim-treesitter.configs'.setup {
   ensure_installed = { 'c', 'cpp', 'go', 'java', 'lua', 'python', 'rust', 'vim', 'zig' },
   highlight = {
     enable = true,
@@ -35,4 +35,4 @@ require'nvim-treesitter.configs'.setup{
   }
 }
 
-vim.cmd[[highlight! default link TSKeywordOperator TSKeyword]]
+vim.cmd [[highlight! default link TSKeywordOperator TSKeyword]]

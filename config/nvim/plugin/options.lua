@@ -2,22 +2,22 @@ vim.opt.autowrite = true
 vim.opt.breakindent = true
 vim.opt.breakindentopt = 'sbr,list:-1'
 vim.opt.colorcolumn = '+1'
-vim.opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
-vim.opt.cpoptions:append'$'
-vim.opt.formatoptions:append'nro'
+vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'noselect' }
+vim.opt.cpoptions:append '$'
+vim.opt.formatoptions:append 'nro'
 vim.opt.gdefault = true
 vim.opt.hidden = true
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.laststatus = 3
 vim.opt.list = true
-vim.opt.listchars = {tab = '→ ', trail = '·', eol = '↲', nbsp = '␣', extends = '…'}
+vim.opt.listchars = { tab = '→ ', trail = '·', eol = '↲', nbsp = '␣', extends = '…' }
 vim.opt.number = true
 vim.opt.numberwidth = 3
-vim.opt.path:append'**'
+vim.opt.path:append '**'
 vim.opt.pumblend = 17
 vim.opt.relativenumber = true
-vim.opt.shortmess:append'c'
+vim.opt.shortmess:append 'c'
 vim.opt.signcolumn = 'number'
 vim.opt.smartcase = true
 vim.opt.showbreak = '> '
@@ -29,7 +29,7 @@ vim.opt.visualbell = true
 if vim.fn.has('nvim-0.8') == 1 then
   vim.opt.winbar = '%=%m %f'
 end
-vim.opt.wildmode = {'full', 'full'}
+vim.opt.wildmode = { 'full', 'full' }
 vim.opt.winwidth = 80
 vim.opt.wrap = false
 

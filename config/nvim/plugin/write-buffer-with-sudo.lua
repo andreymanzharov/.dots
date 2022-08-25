@@ -9,4 +9,4 @@ function _G.write_buf_with_sudo()
   end
 end
 
-vim.api.nvim_command[[command W call v:lua.write_buf_with_sudo()]]
+vim.api.nvim_command [[command W call v:lua.write_buf_with_sudo()]]

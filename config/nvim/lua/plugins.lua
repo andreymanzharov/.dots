@@ -1,6 +1,8 @@
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local packer_bootstrap
 if vim.fn.isdirectory(install_path) == 0 then
-  packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path }
 end
 
 vim.api.nvim_create_augroup("Packer", {})
@@ -10,7 +12,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "source <afile> | PackerCompile"
 });
 
-return require'packer'.startup(function ()
+return require 'packer'.startup(function()
 
   use 'wbthomason/packer.nvim'
 
@@ -60,7 +62,7 @@ return require'packer'.startup(function ()
   use {
     {
       'nvim-telescope/telescope.nvim',
-      requires = { {'nvim-lua/plenary.nvim'} },
+      requires = { { 'nvim-lua/plenary.nvim' } },
       config = [[require'cfg.telescope']]
     },
     {
@@ -70,29 +72,29 @@ return require'packer'.startup(function ()
     }
   }
 
-  use {'Vimjas/vim-python-pep8-indent', ft = 'python'}
+  use { 'Vimjas/vim-python-pep8-indent', ft = 'python' }
 
-  use {'rust-lang/rust.vim', ft = {'rust'}}
+  use { 'rust-lang/rust.vim', ft = { 'rust' } }
 
-  use {'ziglang/zig.vim', ft = {'zig'}}
+  use { 'ziglang/zig.vim', ft = { 'zig' } }
 
-  use {'gabrielelana/vim-markdown', ft = {'markdown'}}
-  use {'godlygeek/tabular', ft = {'markdown'}}
+  use { 'gabrielelana/vim-markdown', ft = { 'markdown' } }
+  use { 'godlygeek/tabular', ft = { 'markdown' } }
 
-  use {'lervag/vimtex', ft = {'tex'}}
+  use { 'lervag/vimtex', ft = { 'tex' } }
 
   use {
     'ekickx/clipboard-image.nvim',
     opt = true,
-    cmd = {'PasteImg'},
+    cmd = { 'PasteImg' },
     config = [[require'cfg.clipboard-image']]
   }
 
-  use {'dag/vim-fish', ft = {'fish'}}
+  use { 'dag/vim-fish', ft = { 'fish' } }
 
-  use {'udalov/kotlin-vim', ft={'kotlin'}}
+  use { 'udalov/kotlin-vim', ft = { 'kotlin' } }
 
   if packer_bootstrap then
-    require'packer'.sync()
+    require 'packer'.sync()
   end
 end)
