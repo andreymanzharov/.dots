@@ -234,10 +234,8 @@ map <leader>a <action>(Annotate)
 
 map M <action>(CompileDirty)
 
-nmap <space>h <action>(PrevSplitter)
-nmap <space>l <action>(NextSplitter)
+nmap <space><space> <action>(NextSplitter)
 nmap <space>u <action>(Unsplit)
 
-nmap <space><space> <action>(GotoClass)
 nmap <space>f <action>(GotoFile)
 nmap <space>e <action>(RecentFiles)
