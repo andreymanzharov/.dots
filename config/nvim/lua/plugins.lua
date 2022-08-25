@@ -35,7 +35,7 @@ return require'packer'.startup(function ()
   use {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-vsnip',
+    'hrsh7th/cmp-emoji',
     'saadparwaiz1/cmp_luasnip',
     {
       'hrsh7th/nvim-cmp',
@@ -89,6 +89,8 @@ return require'packer'.startup(function ()
   }
 
   use {'dag/vim-fish', ft = {'fish'}}
+
+  use {'udalov/kotlin-vim', ft={'kotlin'}}
 
   if packer_bootstrap then
     require'packer'.sync()

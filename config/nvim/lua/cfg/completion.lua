@@ -25,6 +25,7 @@ cmp.setup{
     },
     {
       { name = 'luasnip' },
+      { name = 'emoji' },
       { name = 'buffer' },
     }
   ),
