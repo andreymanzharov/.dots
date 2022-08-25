@@ -64,7 +64,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": "{used:4.1f}GiB (swap:{swapUsed:4.1f}GiB) ",
+        "format": "{used:4.1f}GiB ",
         "states": {
             "warning": 75,
             "critical": 90
