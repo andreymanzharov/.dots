@@ -5,9 +5,9 @@ if vim.fn.isdirectory(install_path) == 0 then
     install_path }
 end
 
-vim.api.nvim_create_augroup("Packer", {})
+
 vim.api.nvim_create_autocmd("BufWritePost", {
-  group = "Packer",
+  group = vim.api.nvim_create_augroup("Packer", {}),
   pattern = "plugins.lua",
   command = "source <afile> | PackerCompile"
 });
