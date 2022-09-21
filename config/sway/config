@@ -37,7 +37,7 @@ output 'DELL SE2416H P7HT87C53Y4' {
   position 1920,0
 }
 
-gaps inner 8
+gaps inner 6
 mouse_warping none
 smart_borders no_gaps
 smart_gaps inverse_outer
