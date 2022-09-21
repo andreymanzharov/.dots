@@ -239,3 +239,8 @@ nmap <space>u <action>(Unsplit)
 
 nmap <space>f <action>(GotoFile)
 nmap <space>e <action>(RecentFiles)
+
+nmap <c-8> <action>(ToggleLineBreakpoint)
+nmap <c-s-8> <action>(EditBreakpoint)
+
+nmap <space>h <action>(ActivateHierarchyToolWindow)
