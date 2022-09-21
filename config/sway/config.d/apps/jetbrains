@@ -1,6 +1,6 @@
 for_window [class="^jetbrains\-"] \
     move container to workspace $w03
-for_window [class="^jetbrains\-|java-util-concurrent-ForkJoinWorkerThread" title="win0"] \
+for_window [class="^jetbrains\-|java-util-concurrent-ForkJoinWorkerThread" title="win0|splash"] \
     floating enable, \
     border none
 for_window [class="^jetbrains\-" title="^Welcome to"] \
