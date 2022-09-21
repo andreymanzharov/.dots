@@ -55,6 +55,3 @@
 
 (setq mac-option-modifier 'none
       mac-command-modifier 'meta)
-
-(after! rustic
-  (setq rustic-format-on-save t))
