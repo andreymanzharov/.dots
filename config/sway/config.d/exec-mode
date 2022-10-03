@@ -6,7 +6,7 @@ mode "exec" {
     bindsym --to-code m exec thunderbird; workspace number $w09; mode "default"
     bindsym --to-code t exec telegram-desktop; mode "default"
 
-    bindsym --to-code i exec idea; workspace number $w03:ide;  mode "default"
+    bindsym --to-code i exec idea; workspace number $w03; mode "default"
 
     bindsym Escape mode "default"
 }
