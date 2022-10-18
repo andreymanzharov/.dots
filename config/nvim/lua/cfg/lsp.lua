@@ -22,10 +22,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 
   if client.server_capabilities.documentFormattingProvider then
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)
+    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
     vim.api.nvim_create_autocmd('BufWritePre', {
       buffer = bufnr,
-      callback = function() vim.lsp.buf.formatting_sync() end,
+      callback = function() vim.lsp.buf.format { async = false } end,
     })
   end
   if client.server_capabilities.documentRangeFormattingProvider then
@@ -34,10 +34,10 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require 'cmp_nvim_lsp'.update_capabilities(capabilities)
+capabilities = require 'cmp_nvim_lsp'.default_capabilities(capabilities)
 
 local lsp_config = require 'lspconfig'
-local servers = { 'clangd', 'gopls', 'zls', 'pylsp', 'rust_analyzer', 'sumneko_lua' }
+local servers = { 'clangd', 'gopls', 'zls', 'pylsp', 'rust_analyzer' }
 for _, server in ipairs(servers) do
   lsp_config[server].setup {
     on_attach = on_attach,
