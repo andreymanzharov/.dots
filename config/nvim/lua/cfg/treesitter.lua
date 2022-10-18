@@ -2,7 +2,7 @@ require 'nvim-treesitter.configs'.setup {
   ensure_installed = { 'c', 'cpp', 'go', 'java', 'lua', 'python', 'rust', 'vim', 'zig' },
   highlight = {
     enable = true,
-    disable = { 'zig' },
+    disable = {},
   },
   textobjects = {
     select = {
