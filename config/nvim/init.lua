@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
     if vim.fn.has('macunix') == 1 then
       vim.opt.guifont = "Iosevka Term:h16"
     else
-      vim.opt.guifont = "monospace"
+      vim.opt.guifont = "monospace:e-subpixelantialias:#h-slight"
     end
   end,
 })
