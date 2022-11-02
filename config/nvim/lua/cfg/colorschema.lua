@@ -17,4 +17,5 @@ require 'lualine'.setup {
 
 vim.cmd [[hi Normal guibg=none]]
 vim.cmd [[hi NonText guibg=none]]
+vim.cmd [[hi LineNr guibg=none]]
 vim.cmd [[hi WinSeparator guibg=none]]
