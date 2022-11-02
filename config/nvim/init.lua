@@ -56,3 +56,11 @@ vim.api.nvim_create_user_command('ReloadConfig', function()
   vim.notify("Configuration reloaded", vim.log.levels.INFO)
 end, {})
 vim.keymap.set('n', '<leader>sv', '<cmd>ReloadConfig<cr>')
+
+vim.api.nvim_create_autocmd("FocusLost", {
+  group = vim.api.nvim_create_augroup("AutoSave", {}),
+  pattern = "*",
+  callback = function()
+    vim.cmd [[silent! wall]]
+  end,
+})
