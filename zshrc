@@ -24,6 +24,7 @@ if ! zgenom saved; then
   zgenom load zsh-users/zsh-syntax-highlighting
 
   zgenom load sindresorhus/pure
+  zgenom load chriskempson/base16-shell
 
   zgenom load ~/.config/zsh
 
@@ -32,9 +33,6 @@ fi
 
 typeset -U cdpath
 cdpath=(. /x $cdpath)
-
-BASE16_SHELL=~/.config/base16-shell
-[[ -n $PS1 ]] && [[ -s $BASE16_SHELL/profile_helper.sh ]] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 export LESS="$LESS -F -X -S -R"
 
