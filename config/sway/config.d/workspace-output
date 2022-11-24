@@ -1,5 +1,5 @@
 workspace $w01 output HDMI-A-1
 workspace $w02 output HDMI-A-1
 workspace $w03 output HDMI-A-1
-workspace $w09 output DP-1
-workspace $w10 output DP-1
+workspace $w09 output DVI-D-1
+workspace $w10 output DVI-D-1
