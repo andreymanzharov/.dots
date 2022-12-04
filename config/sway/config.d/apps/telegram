@@ -1,3 +1,3 @@
-for_window [app_id="telegram-desktop|telegramdesktop"] \
+for_window [app_id="telegram-desktop|org\.telegram\.desktop"] \
     move container to output HDMI-A-1, \
     floating enable
