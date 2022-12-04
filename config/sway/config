@@ -28,6 +28,9 @@ seat seat0 xcursor_theme Adwaita 24
 output * {
   bg ~/yandex.disk/Public/oboi.ws_grey_34.png fill
 }
+output 'Dell Inc. DELL P2721Q G396WD3' {
+  scale 2
+}
 output 'DELL SE2416H P7HT87C53Y1L' {
   resolution 1920x1080
   position 0,0
