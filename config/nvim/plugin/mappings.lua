@@ -4,8 +4,6 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 vim.keymap.set('n', 'Q', '<nop>')
 vim.keymap.set('n', 'gQ', '<nop>')
 
-vim.keymap.set({ 'n', 'v' }, ';', ':')
-
 vim.keymap.set({ 'n', 'i' }, '<f2>', '<cmd>update<cr>')
 vim.keymap.set('n', '<leader>w', '<cmd>update<cr>')
 
