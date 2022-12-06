@@ -117,7 +117,7 @@ pull_all () {
   for r in *(/); do
     if [[ -d "$r/.git" ]]; then
       echo $fg[yellow]$r$reset_color
-      git -C "$r" pull --rebase --autostash
+      git -C "$r" pull --rebase --autostash --prune
     fi
     if [[ -d "$r/.hg" ]]; then
       echo $fg[yellow]$r$reset_color
