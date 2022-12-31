@@ -26,7 +26,11 @@ return require 'packer'.startup(function()
   use {
     'tpope/vim-commentary',
     'tpope/vim-surround',
-    'tpope/vim-fugitive'
+  }
+
+  use {
+    'tpope/vim-fugitive',
+    config = [[require'cfg.fugitive']]
   }
 
   use {
