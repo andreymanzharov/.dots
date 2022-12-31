@@ -1,6 +1,9 @@
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
+vim.keymap.set('v', 'J', [[:move '>+1<cr>gv=gv]])
+vim.keymap.set('v', 'K', [[:move '<-2<cr>gv=gv]])
+
 vim.keymap.set('n', 'Q', '<nop>')
 vim.keymap.set('n', 'gQ', '<nop>')
 
