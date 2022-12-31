@@ -6,7 +6,6 @@ require 'telescope'.setup {
         ['<c-k>'] = 'move_selection_previous'
       }
     },
-    winblend = 15,
   },
   pickers = {
     buffers = {
