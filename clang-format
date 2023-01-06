@@ -1,4 +1,5 @@
 ---
 BasedOnStyle:  Mozilla
+ColumnLimit: 100
 QualifierAlignment: Right
 ---
