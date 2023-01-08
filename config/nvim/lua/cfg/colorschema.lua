@@ -14,13 +14,3 @@ require 'lualine'.setup {
     theme = 'gruvbox'
   }
 }
-
-vim.cmd.highlight { 'Normal', 'guibg=none' }
-vim.cmd.highlight { 'NormalFloat', 'guibg=none' }
-vim.cmd.highlight { 'WinSeparator', 'guibg=none' }
-
-vim.cmd.highlight { 'DiffFile', 'guibg=none' }
-vim.cmd.highlight { 'DiffNewFile', 'guibg=none' }
-vim.cmd.highlight { 'DiffLine', 'guibg=none' }
-vim.cmd.highlight { 'DiffAdded', 'guibg=none' }
-vim.cmd.highlight { 'DiffRemoved', 'guibg=none' }
