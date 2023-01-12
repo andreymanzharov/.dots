@@ -31,6 +31,4 @@ unfunction java_tool_options_proxy
 export MAVEN_HOME="/usr/local/stow/apache-maven-3.8.6"
 export MAVEN_OPTS="-Xmx2g -Xshare:on -XX:+UseParallelGC"
 
-export SERVERS_HOME=/z
-
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
