@@ -1,0 +1,5 @@
+ignore-empty-password
+show-failed-attempts
+daemonize
+image=~/yandex.disk/Public/oboi.ws_grey_34.png
+scaling=fill
