@@ -23,3 +23,5 @@
 	path = config.gh.local
 [includeIf "hasconfig:remote.*.url:**/*ntp-gitlab.krista.ru*/**"]
 	path = config.ntp-gitlab.local
+[init]
+	defaultBranch = master
