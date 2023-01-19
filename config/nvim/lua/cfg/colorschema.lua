@@ -1,16 +1,13 @@
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
 
-if vim.fn.filereadable(vim.fn.expand('~/.vimrc_background')) then
+if vim.env.BASE16_THEME and vim.g.colors_name ~= vim.env.BASE16_THEME then
   vim.g.base16colorspace = 256
-  vim.cmd [[source ~/.vimrc_background]]
-else
-  vim.cmd [[colorscheme base16-gruvbox-dark-hard]]
+  vim.cmd.colorscheme('base16-' .. vim.env.BASE16_THEME)
 end
 
 require 'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox'
   }
 }
