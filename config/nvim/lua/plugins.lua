@@ -17,7 +17,7 @@ return require 'packer'.startup(function()
   use 'wbthomason/packer.nvim'
 
   use {
-    'chriskempson/base16-vim',
+    'RRethy/nvim-base16',
     config = [[require'cfg.colorschema']]
   }
 
