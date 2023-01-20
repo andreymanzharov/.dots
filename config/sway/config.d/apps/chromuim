@@ -1,3 +1,7 @@
 for_window [app_id="chromium-browser-chromium"] \
     move container to workspace $w02, \
     border none
+
+for_window [app_id="brave-browser"] \
+    move container to workspace $w02, \
+    broder none
