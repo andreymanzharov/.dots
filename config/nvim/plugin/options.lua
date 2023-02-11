@@ -14,7 +14,7 @@ vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.laststatus = 3
 vim.opt.list = true
-vim.opt.listchars = { tab = '→ ', trail = '·', eol = '↲', nbsp = '␣', extends = '…' }
+vim.opt.listchars = { tab = '→ ', trail = '·', eol = '¬', nbsp = '␣', extends = '…' }
 vim.opt.number = true
 vim.opt.numberwidth = 3
 vim.opt.path:append '**'
