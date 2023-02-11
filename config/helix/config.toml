@@ -1,0 +1,25 @@
+theme = "base16_transparent"
+
+[editor]
+auto-completion = false
+auto-info = false
+auto-save = true
+color-modes = true
+line-number = "relative"
+scrolloff = 3
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "all"
+
+[editor.whitespace.characters]
+newline = "¬"
+nbsp = "␣"
+space = "·"
+tab = "→"
+tabpad = " "
