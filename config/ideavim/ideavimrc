@@ -229,10 +229,12 @@ vmap б ,
 vmap ю .
 vmap . /
 
-map <leader>r <action>(Vcs.Operations.Popup)
-map <leader>a <action>(Annotate)
+nmap <leader>r <action>(Vcs.Operations.Popup)
+nmap <leader>a <action>(Annotate)
 
-map M <action>(CompileDirty)
+nmap M <action>(CompileDirty)
+
+nmap U <action>($Redo)
 
 nmap <space><space> <action>(NextSplitter)
 nmap <space>u <action>(Unsplit)
