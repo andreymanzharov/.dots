@@ -16,6 +16,7 @@
 	line-numbers = true
 	file-decoration-style =
 	hunk-header-decoration-style =
+	syntax-theme = base16-256
 [pull]
 	ff = only
 [include]
