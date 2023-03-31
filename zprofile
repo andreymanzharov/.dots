@@ -1,5 +1,5 @@
 typeset -U path
-path=(~/.cargo/bin ~/.nimble/bin ~/.local/bin ~/go/bin $path)
+path=(~/.cargo/bin ~/.nimble/bin ~/.local/bin ~/.local/lib64/node-modules/bin ~/go/bin $path)
 
 if [[ `uname -s` = Linux && `tty` = /dev/tty1 ]]; then
   export XDG_CURRENT_DESKTOP=sway
