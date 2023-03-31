@@ -5,3 +5,7 @@ for_window [app_id="chromium-browser-chromium"] \
 for_window [app_id="brave-browser"] \
     move container to workspace $w02, \
     broder none
+
+for_window [app_id="" title="Picture in picture"] \
+    floating enable, \
+    sticky enable
