@@ -1,0 +1,2 @@
+for_window [class="Xcpui_app|Cptools"] \
+    floating enable
