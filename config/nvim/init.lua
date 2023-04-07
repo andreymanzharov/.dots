@@ -22,22 +22,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = [[%substitute/\s\+$//e]],
 })
 
-vim.api.nvim_create_augroup("Neovide", {})
-vim.api.nvim_create_autocmd("UIEnter", {
-  group = "Neovide",
-  pattern = "*",
-  callback = function()
-    vim.g.neovide_transparency = 0.9
-    vim.g.neovide_cursor_vfx_mode = "railgun"
-    if vim.fn.has('macunix') == 1 then
-      vim.opt.guifont = "Iosevka Term"
-    else
-      vim.opt.guifont = "monospace:e-subpixelantialias:#h-slight"
-    end
-  end,
-})
-
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("YankHighlight", {}),
   pattern = "*",
