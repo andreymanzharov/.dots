@@ -2,12 +2,15 @@ input * {
     repeat_delay 400
     repeat_rate 50
     xkb_layout "us+typo,ru:2+typo"
-    xkb_options "grp:caps_toggle"
+}
+
+input 1204:257:HID_Keyboard_HID_Keyboard {
+    xkb_options "grp:caps_toggle,lv3:ralt_switch"
 }
 
 input 9456:320:Metadot_-_Das_Keyboard_Das_Keyboard {
     xkb_model "pc104"
-    xkb_options "ctrl:nocaps,grp:lctrl_toggle"
+    xkb_options "ctrl:nocaps,grp:lctrl_toggle,lv3:ralt_switch"
 }
 
 input 2131:256:Topre_Corporation_HHKB_Professional {
