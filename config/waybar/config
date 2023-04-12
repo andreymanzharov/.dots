@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "temperature", "memory", "disk#root", "disk#home", "disk#docker", "pulseaudio", "network", "idle_inhibitor", "clock", "sway/language", "tray"],
+    "modules-right": ["cpu", "temperature", "memory", "disk#root", "disk#home", "disk#docker", "wireplumber", "network", "idle_inhibitor", "clock", "sway/language", "tray"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -144,6 +144,12 @@
             "default": ["奄", "奔", "墳"]
         },
         "on-click": "pavucontrol"
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "on-click": "helvum",
+        "format-icons": ["", "", ""]
     },
     "sway/language": {
         "tooltip-format": "{long} {variant}"
