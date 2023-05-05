@@ -1,13 +1,13 @@
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
 
-if vim.env.BASE16_THEME and vim.g.colors_name ~= vim.env.BASE16_THEME then
-  require('base16-colorscheme').with_config {
-    telescope = false,
+require 'tokyonight'.setup {
+  styles = {
+    keywords = { italic = false }
   }
-  vim.g.base16colorspace = 256
-  vim.cmd.colorscheme('base16-' .. vim.env.BASE16_THEME)
-end
+}
+
+vim.cmd.colorscheme('tokyonight-moon')
 
 require 'lualine'.setup {
   options = {

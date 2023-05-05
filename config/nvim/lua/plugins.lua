@@ -13,11 +13,10 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 });
 
 return require 'packer'.startup(function()
-
   use 'wbthomason/packer.nvim'
 
   use {
-    'RRethy/nvim-base16',
+    'folke/tokyonight.nvim',
     config = [[require'cfg.colorschema']]
   }
 
