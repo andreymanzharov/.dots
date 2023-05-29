@@ -1,5 +1,6 @@
 local ls = require 'luasnip'
 
+local c = ls.choice_node
 local f = ls.function_node
 local i = ls.insert_node
 local s = ls.snippet
@@ -93,3 +94,21 @@ vim.keymap.set('i', '<c-l>', function()
     ls.change_choice(1)
   end
 end)
+
+ls.add_snippets('asciidoc', {
+  s('src', {
+    t '[',
+    c(1, { t 'source', t 'source%nowrap' }),
+    c(2, { t '', t ',java', t ',diff', t ',dockerfile' }),
+    t {
+      ']',
+      '----',
+      '',
+    },
+    c(3, { t '', f(function(args) return end, {}) }),
+    t { '', '----', '', '' },
+    i(0),
+  })
+}, {
+  key = 'asciidoc',
+})
