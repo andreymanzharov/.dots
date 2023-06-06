@@ -26,3 +26,5 @@
 	path = config.ntp-gitlab.local
 [init]
 	defaultBranch = master
+[merge]
+	conflictstyle = diff3
