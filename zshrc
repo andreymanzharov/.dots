@@ -44,7 +44,7 @@ alias e=${EDITOR:-nvim}
 if type $VISUAL > /dev/null; then
   alias ev=$VISUAL
 elif type neovide > /dev/null; then
-  alias ev='neovide'
+  alias ev='neovide --multigrid'
 fi
 
 if type exa > /dev/null; then
