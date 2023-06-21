@@ -1,8 +1,3 @@
-export TIMEFMT='
-real: %E
-user: %U
-sys:  %S'
-
 export GIT_EDITOR=$EDITOR
 
 jdk_java_options=()
