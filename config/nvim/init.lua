@@ -10,8 +10,6 @@ if vim.opt.shell:get():sub(- #fish) == fish then
   vim.opt.shell = "sh"
 end
 
-require 'plugins'
-
 vim.cmd [[
   filetype plugin indent on
   syntax enable
