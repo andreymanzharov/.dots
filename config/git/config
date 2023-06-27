@@ -28,3 +28,6 @@
 	defaultBranch = master
 [merge]
 	conflictstyle = diff3
+[mergetool "idea"]
+	cmd = idea merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
