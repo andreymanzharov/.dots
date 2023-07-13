@@ -1,11 +1,18 @@
+source-local-configuration () {
+  local source=.zsh_source
+  local dir=$PWD
 
-autoload -U add-zsh-hook
-
-load-local-conf () {
-  if [[ -r .zsh_source ]]; then
-    echo "Found .zsh_source..."
-    source .zsh_source
-  fi
+  while [[ $dir != $HOME && $dir != / ]]; do
+    if [[ -r $dir/$source ]]; then
+      echo "Found .zsh_source..."
+      source $dir/$source
+      return
+    fi
+    dir=${dir:h}
+  done
 }
 
-add-zsh-hook chpwd load-local-conf
+source-local-configuration
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd source-local-configuration
