@@ -1,0 +1,118 @@
+{
+    // "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 24, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["wlr/workspaces", "hyprland/submap"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["cpu", "memory", "disk#root", "disk#home", "disk#docker", "wireplumber", "network", "idle_inhibitor", "clock", "hyprland/language", "tray"],
+    // Modules configuration
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        // "all-outputs": true,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "9": "",
+            "10": "",
+            "urgent": "",
+            "default": ""
+        },
+	"on-click": "activate"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 20,
+        "format": "{:%Y-%m-%d %H:%M}",
+        "today-format": "<span color='#b59a58'><b><u>{}</u></b></span>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "{usage:3d}% ",
+        "states": {
+            "warning": 80,
+            "critical": 95
+        },
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 5,
+        "format": "{used:4.1f}GiB ",
+        "states": {
+            "warning": 75,
+            "critical": 90
+        },
+        "tooltip": false
+    },
+    "disk#root": {
+        "format": "{free} ",
+        "states": {
+            "critical": 10
+        }
+    },
+    "disk#home": {
+        "format": "{free} ",
+        "states": {
+            "critical": 10
+        },
+        "path": "/home"
+    },
+    "disk#docker": {
+        "format": "{free} ",
+        "states": {
+            "critical": 10
+        },
+        "path": "/var/lib/docker"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "interval": 30,
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰱔",
+        "tooltip-format": "{ifname} via {gwaddr} 󰱔",
+        "format-linked": "{ifname} (No IP) 󰱟",
+        "format-disconnected": "Disconnected 󰲜",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "on-click": "helvum",
+        "format-icons": ["", "", ""]
+    },
+    "sway/language": {
+        "tooltip-format": "{long} {variant}"
+    },
+    "hyprland/language": {
+        "format": "{}",
+	"format-en": "EN",
+	"format-ru": "RU"
+    }
+}
