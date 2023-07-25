@@ -1,0 +1,11 @@
+for_window [app_id="emacs|emacs-*"] \
+    floating enable
+
+for_window [app_id="neovide"] \
+    floating enable
+
+for_window [app_id="org.gnome.Nautilus"] \
+    floating enable
+
+for_window [app_id="file-roller"] \
+    floating enable
