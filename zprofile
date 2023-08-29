@@ -7,5 +7,5 @@ if [[ `uname -s` = Linux && `tty` = /dev/tty1 ]]; then
   export QT_QPA_PLATFORM=wayland
   export _JAVA_AWT_WM_NONREPARENTING=1
 
-  exec sway
+  exec dbus-run-session sway
 fi
