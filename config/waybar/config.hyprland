@@ -113,6 +113,6 @@
     "hyprland/language": {
         "format": "{}",
 	"format-en": "EN",
-	"format-ru": "RU"
+	"format-ru": "<span color='#ec6f0e'><b>RU</b></span>"
     }
 }
