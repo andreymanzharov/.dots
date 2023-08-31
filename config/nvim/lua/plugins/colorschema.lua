@@ -14,6 +14,15 @@ return {
       vim.opt.background = 'dark'
       vim.opt.termguicolors = true
 
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        group = vim.api.nvim_create_augroup("LspSemanticHighlight", {}),
+        callback = function()
+          for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+            vim.api.nvim_set_hl(0, group, {})
+          end
+        end,
+      })
+
       vim.cmd.colorscheme 'tokyonight'
     end,
   },
