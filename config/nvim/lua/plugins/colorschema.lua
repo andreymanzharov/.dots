@@ -3,7 +3,7 @@ return {
     'folke/tokyonight.nvim',
     priority = 1000,
     opts = {
-      style = 'moon',
+      style = 'night',
       styles = {
         keywords = { italic = false }
       },
