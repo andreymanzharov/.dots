@@ -27,15 +27,19 @@ return {
       },
     },
     opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ['<c-j>'] = 'move_selection_next',
-            ['<c-k>'] = 'move_selection_previous'
-          }
-        },
-        winblend = 15,
-      },
+      defaults = vim.tbl_extend(
+        'force',
+        require 'telescope.themes'.get_dropdown(),
+        {
+          mappings = {
+            i = {
+              ['<c-j>'] = 'move_selection_next',
+              ['<c-k>'] = 'move_selection_previous'
+            }
+          },
+          winblend = 15,
+        }
+      ),
       pickers = {
         buffers = {
           mappings = {
