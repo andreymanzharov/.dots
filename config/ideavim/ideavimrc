@@ -6,7 +6,6 @@ set ignorecase
 set incsearch
 set smartcase
 
-set clipboard+=unnamed
 set clipboard+=ideaput
 
 set surround
