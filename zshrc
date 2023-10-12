@@ -47,12 +47,12 @@ elif type neovide > /dev/null; then
   alias ev=neovide
 fi
 
-if type exa > /dev/null; then
-  alias l='exa -lah'
-  alias la='exa -lah'
-  alias ll='exa -lh'
-  alias ls='exa'
-  alias lt='exa -lahT'
+if type eza > /dev/null; then
+  alias l='eza -lah'
+  alias la='eza -lah'
+  alias ll='eza -lh'
+  alias ls='eza'
+  alias lt='eza -lahT'
 fi
 
 alias sudo='sudo '
