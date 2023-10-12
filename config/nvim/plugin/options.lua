@@ -3,7 +3,7 @@ vim.opt.breakindent = true
 vim.opt.breakindentopt = 'sbr,list:-1'
 vim.opt.colorcolumn = '+1'
 vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'noselect' }
-vim.opt.cpoptions:append '$'
+vim.opt.cpoptions:append 'n$'
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = { 'number' }
 vim.opt.fixeol = false
