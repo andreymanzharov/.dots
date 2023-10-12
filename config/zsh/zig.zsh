@@ -1,4 +1,4 @@
-zig_update () {
+zig-update () {
   #curl -o- $(curl https://ziglang.org/download/index.json | jq  -r '.master|.["x86_64-linux"].tarball') | tar xJ
   local version tarball
   IFS=, read version tarball < <(curl -s https://ziglang.org/download/index.json | jq  -r '.master | .version + "," + .["x86_64-linux"].tarball')
