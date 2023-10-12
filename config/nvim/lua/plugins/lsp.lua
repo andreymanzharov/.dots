@@ -88,7 +88,6 @@ return {
         if server_opts then
           lsp_config[server].setup(vim.tbl_deep_extend('force',
             {
-              autostart = false,
               capabilities = vim.deepcopy(capabilities),
             },
             opts.servers[server] or {}
