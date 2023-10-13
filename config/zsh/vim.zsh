@@ -1,4 +1,4 @@
-vim_pack_update () {
+vim-pack-update () {
   local git_dir
   for git_dir in $HOME/.vim/pack/**/.git(/)
   do
