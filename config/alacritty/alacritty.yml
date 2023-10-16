@@ -525,6 +525,30 @@ hints:
      binding:
        key: U
        mods: Control|Shift
+   # Filesystem paths
+   - regex: "(?:\\S*?/[\\r\\S]+)|(?:\\S[\\r\\S]*\\.(?:[a-zA-Z0-9]{2,7}|[ahcmo]))"
+     action: Paste
+     post_processing: true
+     binding: 
+       key: J
+       mods: Control|Shift 
+   - regex: "(?:\\S*?/[\\r\\S]+)|(?:\\S[\\r\\S]*\\.(?:[a-zA-Z0-9]{2,7}|[ahcmo]))"
+     action: Copy
+     post_processing: true
+     binding: 
+       key: J 
+       mods: Alt|Shift
+   # Hashes
+   - regex: "[a-fA-F0-9]{6,}"
+     action: Paste
+     binding: 
+       key: H
+       mods: Control|Shift
+   - regex: "[a-fA-F0-9]{6,}"
+     action: Copy
+     binding: 
+       key: H
+       mods: Alt|Shift
 
 # Mouse bindings
 #
