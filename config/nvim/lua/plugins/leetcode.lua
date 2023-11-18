@@ -23,6 +23,9 @@ return {
       vim.keymap.set('n', '<leader>lr', '<cmd>Leet run<cr>')
 
       local ls = require'luasnip'
+      local c = ls.choice_node
+      local f = ls.function_node
+      local i = ls.insert_node
       local t = ls.text_node
       ls.add_snippets('c', {
         ls.snippet('#min', {
@@ -44,6 +47,30 @@ return {
             '    _a > _b ? _a : _b;       \\',
             '  })',
           }
+        }),
+        ls.snippet('compare', {
+          t { 'static int', '' },
+          t 'compare_',
+          c(1, { t 'int', t 'double' }),
+          t { 's(void const* a, void const* b)', '' },
+          t { '{', '' },
+          t '  return *(',
+          f(function(args) return args[1] end, {1}),
+          t ' const*)a - *(',
+          f(function(args) return args[1] end, {1}),
+          t { ' const*)b;', ''},
+          t '}',
+        }),
+        ls.snippet('sort', {
+          t 'qsort(',
+          i(1, 'nums'),
+          t ', ',
+          f(function(args) return args[1] end, {1}),
+          t '_size, sizeof(',
+          c(2, {t 'int', t 'double'}),
+          t '), compare_',
+          f(function(args) return args[1] end, {2}),
+          t 's);',
         }),
         ls.snippet('#heap', {
           t {
