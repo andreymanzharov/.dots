@@ -1,16 +1,8 @@
 return {
   {
-    'folke/tokyonight.nvim',
+    'RRethy/nvim-base16',
     priority = 1000,
-    opts = {
-      style = 'night',
-      styles = {
-        keywords = { italic = false }
-      },
-    },
-    config = function(_, opts)
-      require 'tokyonight'.setup(opts)
-
+    config = function()
       vim.opt.background = 'dark'
       vim.opt.termguicolors = true
 
@@ -20,10 +12,19 @@ return {
           for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
             vim.api.nvim_set_hl(0, group, {})
           end
+          vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
         end,
       })
 
-      vim.cmd.colorscheme 'tokyonight'
+      require 'base16-colorscheme'.with_config {
+        telescope = false,
+      }
+
+      if vim.env.BASE16_THEME and vim.g.colors_name ~= vim.env.BASE16_THEME then
+        vim.cmd.colorscheme('base16-' .. vim.env.BASE16_THEME)
+      else
+        vim.cmd.colorscheme 'base16-default-dark'
+      end
     end,
   },
   {
