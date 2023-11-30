@@ -20,9 +20,9 @@ return {
       {
         '<leader>ev',
         function()
-          require 'telescope.builtin'.find_files(require 'telescope.themes'.get_dropdown {
-            cwd = vim.fn.stdpath 'config'
-          })
+          require 'telescope.builtin'.find_files {
+            cwd = vim.fn.stdpath 'config',
+          }
         end
       },
     },
