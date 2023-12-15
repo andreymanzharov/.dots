@@ -64,11 +64,13 @@ exec mako
 #
 # Example configuration:
 #
+set $locking swaylock
+
 exec swayidle -w \
-         timeout 360 swaylock \
+         timeout 360 'exec $locking' \
          timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep swaylock
-bindsym --to-code $mod+alt+l exec swaylock
+         before-sleep 'exec $locking'
+bindsym --to-code $mod+alt+l exec $locking
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
