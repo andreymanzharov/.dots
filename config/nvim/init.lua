@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 local lazy_path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.uv.fs_stat(lazy_path) then
+if not vim.loop.fs_stat(lazy_path) then
   vim.fn.system {
     'git',
     'clone',
