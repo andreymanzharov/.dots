@@ -12,6 +12,9 @@ local function set_scale_factor(scale)
   vim.g.neovide_scale_factor = scale
   vim.cmd.redraw { bang = true }
 end
-vim.keymap.set('n', '<d-0>', function() set_scale_factor(1) end)
-vim.keymap.set('n', '<d-->', function() set_scale_factor(vim.g.neovide_scale_factor - .1) end)
-vim.keymap.set('n', '<d-=>', function() set_scale_factor(vim.g.neovide_scale_factor + .1) end)
+
+local meta = require 'useful'.meta
+
+vim.keymap.set('n', meta '0', function() set_scale_factor(1) end)
+vim.keymap.set('n', meta '-', function() set_scale_factor(vim.g.neovide_scale_factor - .1) end)
+vim.keymap.set('n', meta '=', function() set_scale_factor(vim.g.neovide_scale_factor + .1) end)
