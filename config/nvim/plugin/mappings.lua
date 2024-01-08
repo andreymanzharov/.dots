@@ -40,3 +40,7 @@ vim.keymap.set('c', '<c-j>', function() return vim.fn.wildmenumode() == 1 and '<
 vim.keymap.set('c', '<c-k>', function() return vim.fn.wildmenumode() == 1 and '<c-p>' or '<c-k>' end, { expr = true })
 vim.keymap.set('c', '<c-h>', function() return vim.fn.wildmenumode() == 1 and '<up>' or '<c-h>' end, { expr = true })
 vim.keymap.set('c', '<c-l>', function() return vim.fn.wildmenumode() == 1 and '<down>' or '<c-l>' end, { expr = true })
+
+local meta = require 'useful'.meta
+
+vim.keymap.set('n', meta '1', vim.cmd.Rexplore)
