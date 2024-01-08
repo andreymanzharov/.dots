@@ -10,7 +10,7 @@ vim.opt.guifont = 'Iosevka Term'
 
 local function set_scale_factor(scale)
   vim.g.neovide_scale_factor = scale
-  vim.cmd.redraw { bang = true }
+  print('scale: ' .. scale)
 end
 
 local meta = require 'useful'.meta
