@@ -1,0 +1,63 @@
+import = ["~/.alacritty.local.toml"]
+
+[colors]
+transparent_background_colors = true
+
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+action = "Paste"
+post_processing = true
+regex = '(?:\S*?/[\r\S]+)|(?:\S[\r\S]*\.(?:[a-zA-Z0-9]{2,7}|[ahcmo]))'
+
+[hints.enabled.binding]
+key = "J"
+mods = "Control|Shift"
+
+[[hints.enabled]]
+action = "Copy"
+post_processing = true
+regex = '(?:\S*?/[\r\S]+)|(?:\S[\r\S]*\.(?:[a-zA-Z0-9]{2,7}|[ahcmo]))'
+
+[hints.enabled.binding]
+key = "J"
+mods = "Alt|Shift"
+
+[[hints.enabled]]
+action = "Paste"
+regex = "[a-fA-F0-9]{6,}"
+
+[hints.enabled.binding]
+key = "H"
+mods = "Control|Shift"
+
+[[hints.enabled]]
+action = "Copy"
+regex = "[a-fA-F0-9]{6,}"
+
+[hints.enabled.binding]
+key = "H"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "Return"
+mods = "Control|Shift"
+
+[selection]
+save_to_clipboard = true
+
+[window]
+opacity = 0.9
