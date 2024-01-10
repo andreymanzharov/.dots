@@ -1,4 +1,6 @@
-import = ["~/.alacritty.local.toml"]
+import = [
+  "~/.config/alacritty/local.toml",
+]
 
 [colors]
 transparent_background_colors = true
