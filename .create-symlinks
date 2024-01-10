@@ -4,7 +4,7 @@ from pathlib import Path
 HOME = Path.home()
 
 
-def new_configs():
+def configs():
     cwd = Path.cwd()
     config = cwd / 'config'
     yield from (
@@ -19,8 +19,8 @@ def new_configs():
     )
 
 
-def new_update_symlink(path):
-    link = path.with_segments(HOME, '.' + path.parts[0], *path.parts[1:])
+def update_symlink(path):
+    link = Path(HOME, '.' + path.parts[0], *path.parts[1:])
     config = path.absolute()
     if link.is_symlink():
         if link.readlink() == config:
@@ -37,5 +37,5 @@ def new_update_symlink(path):
 
 
 if __name__ == '__main__':
-    for path in new_configs():
-        new_update_symlink(path)
+    for path in configs():
+        update_symlink(path)
