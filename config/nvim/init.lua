@@ -6,8 +6,13 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
 vim.api.nvim_create_autocmd('BufWritePre', {
+  group = vim.api.nvim_create_augroup('Trailing Whitespaces', {}),
   pattern = '*',
-  command = [[%substitute/\s\+$//e]],
+  callback = function()
+    local pos = vim.fn.getpos '.'
+    vim.cmd [[%s/\s\+$//e]]
+    vim.fn.setpos('.', pos)
+  end
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
