@@ -29,7 +29,7 @@ def new_update_symlink(path):
     elif link.is_file() or link.is_dir():
         link.rename(link.with_suffix('.old'))
     elif link.exists():
-        print(f'eroro: {link} already exists')
+        print(f'error: {link} already exists')
         return
     link.symlink_to(config)
     print(f'symlink ~/{link.relative_to(HOME)}',
