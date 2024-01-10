@@ -1,0 +1,55 @@
+vim9script
+
+unlet! g:skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+filetype indent on
+
+if &term == "alacritty"
+  set term=xterm-256color
+endif
+set t_Co=256 t_8f=[38;2;%lu;%lu;%lum t_8b=[48;2;%lu;%lu;%lum t_AB=^[[48;5;%dm t_AF=^[[38;5;%dm
+set termguicolors background=dark
+colorscheme habamax
+
+set wildmenu wildmode=longest:full,full wildoptions+=pum
+
+set autowriteall
+
+set path+=src/**
+
+set keymap=russian-typograph
+set iminsert=0
+
+set relativenumber signcolumn=number virtualedit=onemore
+
+set ignorecase smartcase
+
+set hidden
+set modeline
+
+set clipboard^=unnamedplus
+
+#nnoremap Q <nop>
+#nnoremap gQ <nop>
+
+nnoremap <expr> j v:count == 0 ? "gj" : "j"
+nnoremap <expr> k v:count == 0 ? "gk" : "k"
+
+cnoremap <expr> <c-h> wildmenumode() ? "\<left>" : "\<c-h>"
+cnoremap <expr> <c-j> wildmenumode() ? "\<c-n>" : "\<c-j>"
+cnoremap <expr> <c-k> wildmenumode() ? "\<c-p>" : "\<c-k>"
+cnoremap <expr> <c-l> wildmenumode() ? "\<right>" : "\<c-l>"
+
+g:zig_fmt_autosave = 0
+
+#
+def SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), (_, val) => synIDattr(val, "name"))
+enddef
+command SynStack SynStack()
+
+# vim: tabstop=8 shiftwidth=2 softtabstop=2
