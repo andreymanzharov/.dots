@@ -24,7 +24,6 @@ if ! zgenom saved; then
   zgenom load zsh-users/zsh-syntax-highlighting
 
   zgenom load sindresorhus/pure
-  zgenom load chriskempson/base16-shell
 
   zgenom load ~/.config/zsh
 
