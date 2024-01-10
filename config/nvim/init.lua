@@ -10,6 +10,14 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   command = [[%substitute/\s\+$//e]],
 })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = vim.api.nvim_create_augroup("ColorScheme", {}),
+  callback = function()
+    vim.opt.laststatus = 3
+    vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
+  end,
+})
+
 local lazy_path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazy_path) then
   vim.fn.system {
