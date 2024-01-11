@@ -3,10 +3,7 @@ return {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
     dependencies = {
-      {
-        'nvim-telescope/telescope-fzy-native.nvim',
-        config = function() require 'telescope'.load_extension 'fzy_native' end,
-      }
+      { 'nvim-telescope/telescope-fzy-native.nvim' },
     },
     keys = {
       { '<c-n>',            function() require 'telescope.builtin'.find_files() end },
@@ -62,6 +59,11 @@ return {
           }
         }
       }
-    }
+    },
+    config = function(_, opts)
+      local telescope = require 'telescope'
+      telescope.setup(opts)
+      telescope.load_extension 'fzy_native'
+    end
   }
 }
