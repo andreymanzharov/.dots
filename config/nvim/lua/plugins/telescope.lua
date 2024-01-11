@@ -4,6 +4,7 @@ return {
     cmd = 'Telescope',
     dependencies = {
       { 'nvim-telescope/telescope-fzy-native.nvim' },
+      { 'nvim-telescope/telescope-ui-select.nvim' }
     },
     keys = {
       { '<c-n>',            function() require 'telescope.builtin'.find_files() end },
@@ -24,19 +25,20 @@ return {
       },
     },
     opts = {
-      defaults = vim.tbl_extend(
-        'force',
-        require 'telescope.themes'.get_dropdown(),
-        {
-          mappings = {
-            i = {
-              ['<c-j>'] = 'move_selection_next',
-              ['<c-k>'] = 'move_selection_previous'
-            }
-          },
-          winblend = 15,
+      defaults = {
+        mappings = {
+          i = {
+            ['<c-j>'] = 'move_selection_next',
+            ['<c-k>'] = 'move_selection_previous'
+          }
+        },
+        winblend = 15,
+      },
+      extensions = {
+        ['ui-select'] = {
+          require 'telescope.themes'.get_dropdown {}
         }
-      ),
+      },
       pickers = {
         buffers = {
           mappings = {
@@ -64,6 +66,7 @@ return {
       local telescope = require 'telescope'
       telescope.setup(opts)
       telescope.load_extension 'fzy_native'
+      telescope.load_extension 'ui-select'
     end
   }
 }
