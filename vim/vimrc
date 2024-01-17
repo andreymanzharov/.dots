@@ -9,7 +9,9 @@ if &term == "alacritty"
   set term=xterm-256color
 endif
 set termguicolors background=dark
-colorscheme habamax
+
+"https://github.com/exb/minimo.git
+colorscheme minimo
 
 set wildmenu wildmode=longest:full,full wildoptions+=pum
 
