@@ -8,7 +8,6 @@ filetype indent on
 if &term == "alacritty"
   set term=xterm-256color
 endif
-set t_Co=256 t_8f=[38;2;%lu;%lu;%lum t_8b=[48;2;%lu;%lu;%lum t_AB=^[[48;5;%dm t_AF=^[[38;5;%dm
 set termguicolors background=dark
 colorscheme habamax
 
