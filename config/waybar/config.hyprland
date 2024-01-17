@@ -1,15 +1,15 @@
 {
-    // "layer": "top", // Waybar at top layer
+    "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "hyprland/submap"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["cpu", "memory", "disk#root", "disk#home", "disk#docker", "wireplumber", "network", "idle_inhibitor", "clock", "hyprland/language", "tray"],
     // Modules configuration
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         // "all-outputs": true,
         "format": "{name}: {icon}",
@@ -22,7 +22,7 @@
             "urgent": "",
             "default": ""
         },
-	"on-click": "activate"
+        "on-click": "activate"
     },
     "keyboard-state": {
         "numlock": true,
@@ -58,7 +58,7 @@
         "format": "{usage:3d}% ",
         "states": {
             "warning": 80,
-            "critical": 95
+            "critical": 90
         },
         "tooltip": false
     },
@@ -67,7 +67,7 @@
         "format": "{used:4.1f}GiB ",
         "states": {
             "warning": 75,
-            "critical": 90
+            "critical": 80
         },
         "tooltip": false
     },
@@ -112,7 +112,7 @@
     },
     "hyprland/language": {
         "format": "{}",
-	"format-en": "EN",
-	"format-ru": "<span color='#ec6f0e'><b>RU</b></span>"
+        "format-en": "🇺🇸",
+        "format-ru": "🇷🇺"
     }
 }

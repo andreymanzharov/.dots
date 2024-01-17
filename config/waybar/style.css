@@ -1,74 +1,80 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: monospace;
-    font-size: 14px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "Symbols Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background: transparent;
+  /*    background-color: rgba(43, 48, 59, 0.5); */
+  /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.fullscreen {
+  color: rgba(0, 255, 153, 0.9);
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
-/* window#waybar.empty { */
-/*     background-color: transparent; */
-/* } */
-/* window#waybar.solo { */
-/*     background-color: #FFFFFF; */
-/* } */
+#waybar.empty #window {
+  background-color: transparent;
+}
 
-/* window#waybar.termite { */
-/*     background-color: #3F3F3F; */
-/* } */
+#workspaces {
+}
 
-/* window#waybar.chromium { */
-/*     background-color: #000000; */
-/*     border: none; */
-/* } */
+#window {
+  margin: 2;
+  padding-left: 8;
+  padding-right: 8;
+  background-color: rgba(0,0,0,0.3);
+  font-size:14px;
+  font-weight: bold;
+}
 
-#workspaces button {
-    padding: 0 4px;
-    padding-right: 12px;
-    background-color: transparent;
-    color: #ffffff;
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each workspace name */
-    border: none;
-    border-radius: 0;
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  border-top: 2px solid #c9545d;
+}
+
+#workspaces button {
+  padding: 0 4px;
+  /*    background-color: rgba(0,0,0,0.3); */
+}
+
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 -1px #ffffff;
 }
 
-#workspaces button.focused {
-    background-color: #323232;
-    color: #f0d044;
-    box-shadow: inset 0 -1px #f2c40e;
-}
-
+#workspaces button.focused,
 #workspaces button.active {
-    background-color: #323232;
-    color: #ec6f0e;
-    box-shadow: inset 0 -1px #ef6224;
+  /*    box-shadow: inset 0 -2px #c9545d; */
+  background-color: rgba(0,0,0,0.3);
+  color:#c9545d;
+  border-top: 2px solid #c9545d;
 }
 
 #workspaces button.urgent {
-    background-color: #f0d044;
+  background-color: #eb4d4b;
 }
 
-#mode {
-    background-color: #58b59a;
-    border-bottom: 3px solid #ffffff;
+#mode, #submap {
+  background-color: #64727D;
+  border-bottom: 3px solid #ffffff;
 }
 
 #clock,
@@ -84,192 +90,112 @@ window#waybar.hidden {
 #custom-media,
 #tray,
 #mode,
+#submap,
 #idle_inhibitor,
-#mpd {
-    padding: 0 6px;
-    color: #ffffff;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
+#scratchpad,
+#mpd,
+#language {
+  margin: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: rgba(0,0,0,0.3);
+  color: #ffffff;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+  margin-right: 0;
+}
+
+#cpu.critical,
+#memory.critical {
+  color: #c9545d;
 }
 
 #clock {
-    background-color: #323232;
+  font-size:14px;
+  font-weight: bold;
 }
 
-#battery {
-    background-color: #ffffff;
-    color: #000000;
+#battery icon {
+  color: red;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+  color: #ffffff;
+  background-color: #26A65B;
 }
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.warning:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background-color: #323232;
-}
-#cpu.warning {
-    color: #f0d044;
-}
-#cpu.critical {
-    color: #ec3e24;
-}
-
-#memory {
-    background-color: #323232;
-}
-#memory.warning {
-    color: #f0d044;
-}
-#memory.critical {
-    color: #ec3e24;
-}
-
-#disk {
-    background-color: #323232;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network {
-    background-color: #323232;
+  background-color: #000000;
 }
 
 #network.disconnected {
-    color: #ec3e24;
-}
-
-#pulseaudio {
-    background-color: #323232;
-}
-
-/* #pulseaudio.muted { */
-/*     background-color: #90b1b1; */
-/*     color: #2a5c45; */
-/* } */
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #323232;
+  background-color: #f53c3c;
 }
 
 #temperature.critical {
-    color: #ec3e24;
-}
-
-#tray {
-    background-color: #323232;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
+  background-color: #eb4d4b;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+  background-color: #ecf0f1;
+  color: #2d3436;
 }
 
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
+#tray > .passive {
+  -gtk-icon-effect: dim;
 }
 
-#mpd.disconnected {
-    background-color: #f53c3c;
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
 }
 
-#mpd.stopped {
-    background-color: #90b1b1;
+/*
+
+window#waybar.solo {
+background-color: #FFFFFF;
 }
 
-#mpd.paused {
-    background-color: #51a37a;
+window#waybar.termite {
+background-color: #3F3F3F;
 }
 
-#language {
-    background-color: #323232;
-    padding: 0 5px;
-    min-width: 16px;
+window#waybar.chromium {
+background-color: #000000;
+border: none;
 }
-#language.ru {
-    background-color: #f0d044;
-    color: #323232;
-    padding: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
+ */
