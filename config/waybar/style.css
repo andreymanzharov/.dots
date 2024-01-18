@@ -1,3 +1,5 @@
+@import "./rose-pine.css";
+
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: "Symbols Nerd Font", monospace;
@@ -6,16 +8,16 @@
 }
 
 window#waybar {
-  background: transparent;
+  background: @base;
   /*    background-color: rgba(43, 48, 59, 0.5); */
   /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-  color: #ffffff;
+  color: @subtle;
   transition-property: background-color;
   transition-duration: .5s;
 }
 
 window#waybar.fullscreen {
-  color: rgba(0, 255, 153, 0.9);
+  color: @foam;
 }
 
 window#waybar.hidden {
@@ -49,7 +51,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
-  border-top: 2px solid #c9545d;
+  border-top: 2px solid @love;
 }
 
 #workspaces button {
@@ -64,8 +66,8 @@ button:hover {
 #workspaces button.active {
   /*    box-shadow: inset 0 -2px #c9545d; */
   background-color: rgba(0,0,0,0.3);
-  color:#c9545d;
-  border-top: 2px solid #c9545d;
+  color: @love;
+  border-top: 2px solid @love;
 }
 
 #workspaces button.urgent {
@@ -99,7 +101,7 @@ button:hover {
   padding-left: 4px;
   padding-right: 4px;
   background-color: rgba(0,0,0,0.3);
-  color: #ffffff;
+  color: @text;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -112,9 +114,14 @@ button:hover {
   margin-right: 0;
 }
 
+#cpu.warning,
+#memory.warning {
+  color: @gold;
+}
+
 #cpu.critical,
 #memory.critical {
-  color: #c9545d;
+  color: @love;
 }
 
 #clock {
@@ -163,16 +170,19 @@ label:focus {
 }
 
 #network.disconnected {
-  background-color: #f53c3c;
+  color: @muted;
 }
 
 #temperature.critical {
   background-color: #eb4d4b;
 }
 
+#idle_inhibitor {
+  color: @muted;
+}
+
 #idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #2d3436;
+  color: @text;
 }
 
 #tray > .passive {
