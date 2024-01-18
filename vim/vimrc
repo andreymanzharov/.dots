@@ -10,7 +10,7 @@ if &term == "alacritty"
 endif
 set termguicolors background=dark
 
-"https://github.com/exb/minimo.git
+# https://github.com/exb/minimo.git
 colorscheme minimo
 
 set wildmenu wildmode=longest:full,full wildoptions+=pum
@@ -34,8 +34,8 @@ set clipboard^=unnamedplus
 #nnoremap Q <nop>
 #nnoremap gQ <nop>
 
-nnoremap <expr> j v:count == 0 ? "gj" : "j"
-nnoremap <expr> k v:count == 0 ? "gk" : "k"
+# nnoremap <expr> j v:count == 0 ? "gj" : "j"
+# nnoremap <expr> k v:count == 0 ? "gk" : "k"
 
 cnoremap <expr> <c-h> wildmenumode() ? "\<left>" : "\<c-h>"
 cnoremap <expr> <c-j> wildmenumode() ? "\<c-n>" : "\<c-j>"
