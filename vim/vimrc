@@ -44,7 +44,6 @@ cnoremap <expr> <c-l> wildmenumode() ? "\<right>" : "\<c-l>"
 
 g:zig_fmt_autosave = 0
 
-#
 def SynStack()
   if !exists("*synstack")
     return
@@ -52,5 +51,10 @@ def SynStack()
   echo map(synstack(line('.'), col('.')), (_, val) => synIDattr(val, "name"))
 enddef
 command SynStack SynStack()
+
+augroup auto-save
+  au!
+  au FocusLost * silent! wall
+augroup END
 
 # vim: tabstop=8 shiftwidth=2 softtabstop=2
