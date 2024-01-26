@@ -1,4 +1,4 @@
-@import "./rose-pine.css";
+@import "./mocha.css";
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
@@ -11,13 +11,13 @@ window#waybar {
   background: @base;
   /*    background-color: rgba(43, 48, 59, 0.5); */
   /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-  color: @subtle;
+  color: @subtext1;
   transition-property: background-color;
   transition-duration: .5s;
 }
 
 window#waybar.fullscreen {
-  color: @foam;
+  color: @green;
 }
 
 window#waybar.hidden {
@@ -51,7 +51,8 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
-  border-top: 2px solid @love;
+  color: @yellow;
+  border-top: 2px solid @yellow;
 }
 
 #workspaces button {
@@ -66,17 +67,17 @@ button:hover {
 #workspaces button.active {
   /*    box-shadow: inset 0 -2px #c9545d; */
   background-color: rgba(0,0,0,0.3);
-  color: @love;
-  border-top: 2px solid @love;
+  color: @red;
+  border-top: 2px solid @red;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  color: @text;
+  background-color: @red;
 }
 
 #mode, #submap {
-  background-color: #64727D;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 2px solid @blue;
 }
 
 #clock,
@@ -116,12 +117,20 @@ button:hover {
 
 #cpu.warning,
 #memory.warning {
-  color: @gold;
+  color: @yello;
 }
 
 #cpu.critical,
 #memory.critical {
-  color: @love;
+  color: @red;
+}
+
+#disk.home {
+  color: @lavender;
+}
+
+#disk.docker {
+  color: @sapphire;
 }
 
 #clock {
@@ -170,7 +179,7 @@ label:focus {
 }
 
 #network.disconnected {
-  color: @muted;
+  color: @overlay0;
 }
 
 #temperature.critical {
@@ -178,11 +187,11 @@ label:focus {
 }
 
 #idle_inhibitor {
-  color: @muted;
+  color: @overlay0;
 }
 
 #idle_inhibitor.activated {
-  color: @text;
+  color: @sky;
 }
 
 #tray > .passive {
@@ -209,3 +218,7 @@ background-color: #000000;
 border: none;
 }
  */
+
+#wireplumber {
+  color: @peach;
+}
