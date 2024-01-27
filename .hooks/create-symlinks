@@ -4,18 +4,22 @@ from pathlib import Path
 HOME = Path.home()
 
 
+def excluded(path):
+    return path.name.startswith('.') or path.suffix == '.md'
+
+
 def configs():
     cwd = Path.cwd()
     config = cwd / 'config'
     yield from (
         sub.relative_to(cwd)
         for sub in cwd.iterdir()
-        if sub != config and not sub.name.startswith('.')
+        if sub != config and not excluded(sub)
     )
     yield from (
         sub.relative_to(cwd)
         for sub in config.iterdir()
-        if not sub.name.startswith('.')
+        if not excluded(sub)
     )
 
 
