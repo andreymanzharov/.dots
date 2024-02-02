@@ -8,10 +8,15 @@ filetype indent on
 if &term == "alacritty"
   set term=xterm-256color
 endif
-set termguicolors background=dark
+set termguicolors 
 
-# https://github.com/exb/minimo.git
-colorscheme minimo
+try 
+  # https://github.com/exb/minimo.git
+  colorscheme minimo
+catch /^Vim(colorscheme):E185:/
+  colorscheme default
+  set background=dark
+endtry
 
 set wildmenu wildmode=longest:full,full wildoptions+=pum
 
