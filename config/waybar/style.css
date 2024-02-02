@@ -126,11 +126,11 @@ button:hover {
 }
 
 #disk.home {
-  color: @lavender;
+  color: @sapphire;
 }
 
 #disk.docker {
-  color: @sapphire;
+  color: @lavender;
 }
 
 #clock {
