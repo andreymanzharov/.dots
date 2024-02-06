@@ -156,6 +156,42 @@ fetch_all () {
   done
 }
 
+my-git-main-remote-ref () {
+  command git -C $1 rev-parse --git-dir &> /dev/null || return
+  local ref
+  for ref in refs/remotes/{origin,upstream}/{main,trunk,mainline,default,master}; do
+    if command git -C $1 show-ref -q --verify $ref; then
+      echo ${ref#"refs/remotes/"}
+      return 0
+    fi
+  done
+  return 1
+}
+
+rebase-all() {
+  if [[ -r $PWD/.git || -d $PWD/.hg ]]; then
+    local p=$PWD:h
+  else
+    local p=$PWD
+  fi
+  local branch
+  for r in $p/*(/); do
+    if [[ -r $r/.git ]]; then
+      echo $fg[yellow]$r$reset_color
+      branch=$(git -C $r branch --show-current)
+      if [[ -z $branch ]]; then
+        git -C $r branch -vv --points-at HEAD
+      else
+        if git -C $r config branch."$branch".remote &> /dev/null; then
+          git -C $r pull --rebase --autostash
+        else
+          git -C $r rebase $(my-git-main-remote-ref $r)
+        fi
+      fi
+    fi
+  done
+}
+
 mounts () {
   sudo mount --bind "$HOME/Dev" /w
   sudo mount --bind "$HOME/Work" /x
