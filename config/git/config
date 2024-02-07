@@ -17,7 +17,7 @@
 	line-numbers = true
 	file-decoration-style =
 	hunk-header-decoration-style =
-	syntax-theme = base16-256
+	syntax-theme = Catppuccin-mocha
 [pull]
 	ff = only
 [include]
