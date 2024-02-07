@@ -156,37 +156,37 @@ fetch_all () {
   done
 }
 
-my-git-main-remote-ref () {
-  command git -C $1 rev-parse --git-dir &> /dev/null || return
-  local ref
-  for ref in refs/remotes/{origin,upstream}/{main,trunk,mainline,default,master}; do
-    if command git -C $1 show-ref -q --verify $ref; then
-      echo ${ref#"refs/remotes/"}
-      return 0
-    fi
-  done
-  return 1
-}
-
-rebase-all() {
+rebase-all () {
   if [[ -r $PWD/.git || -d $PWD/.hg ]]; then
     local p=$PWD:h
   else
     local p=$PWD
   fi
-  local branch
   for r in $p/*(/); do
     if [[ -r $r/.git ]]; then
       echo $fg[yellow]$r$reset_color
-      branch=$(git -C $r branch --show-current)
+      local branch=$(git -C $r branch --show-current)
       if [[ -z $branch ]]; then
+        # if detached
         git -C $r branch -vv --points-at HEAD
+      elif git -C $r config branch."$branch".remote &> /dev/null; then
+        # if branch has remote tracking
+        git -C $r pull --rebase --autostash
       else
-        if git -C $r config branch."$branch".remote &> /dev/null; then
-          git -C $r pull --rebase --autostash
-        else
-          git -C $r rebase $(my-git-main-remote-ref $r)
-        fi
+        # otherwise rebase on top of main branch
+        local remote_refspec
+        local remote_main=$(function {
+          local ref
+          for ref in refs/remotes/{origin,upstream}/{main,trunk,mainline,default,master}; do
+            if git -C $r show-ref -q --verify $ref; then
+              echo ${ref#"refs/remotes/"}
+              return 0
+            fi
+          done
+          return 1
+        }) remote_refspec=(${remote_main/\// +}) &&
+        git -C $r fetch $remote_refspec --prune &&
+        git -C $r rebase --autostash $remote_main
       fi
     fi
   done
