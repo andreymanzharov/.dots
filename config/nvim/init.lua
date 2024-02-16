@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-  group = vim.api.nvim_create_augroup("ColorScheme", {}),
+  group = vim.api.nvim_create_augroup("MyColorScheme", {}),
   callback = function()
     vim.opt.laststatus = 3
     vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
