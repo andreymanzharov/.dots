@@ -13,11 +13,13 @@
 	quotepath = false
 [interactive]
 	diffFilter = delta --color-only
+[include]
+	path = mocha.gitconfig
 [delta]
+	features = catppuccin-mocha
 	line-numbers = true
 	file-decoration-style =
 	hunk-header-decoration-style =
-	syntax-theme = Catppuccin-mocha
 [pull]
 	ff = only
 [include]
