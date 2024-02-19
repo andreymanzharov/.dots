@@ -23,10 +23,7 @@
 [pull]
 	ff = only
 [include]
-	path = config.local
-	path = config.gh.local
-[includeIf "hasconfig:remote.*.url:**/*ntp-gitlab.krista.ru*/**"]
-	path = config.ntp-gitlab.local
+	path = local.gitconfig
 [init]
 	defaultBranch = master
 [mergetool "idea"]
