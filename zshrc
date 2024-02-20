@@ -30,8 +30,7 @@ if ! zgenom saved; then
   zgenom save
 fi
 
-typeset -U cdpath
-cdpath=(. /x $cdpath)
+typeset -U PATH path
 
 export LESS="$LESS -F -X -S -R"
 
