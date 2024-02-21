@@ -43,9 +43,5 @@ return {
         },
       }
     },
-    config = function(_, opts)
-      require 'nvim-treesitter.configs'.setup(opts)
-      vim.cmd [[highlight! default link TSKeywordOperator TSKeyword]]
-    end,
   }
 }
