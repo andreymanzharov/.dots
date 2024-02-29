@@ -31,3 +31,5 @@
 	trustExitCode = true
 [rerere]
 	enabled = true
+[merge]
+	conflictstyle = zdiff3
