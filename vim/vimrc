@@ -11,8 +11,8 @@ endif
 set termguicolors 
 
 try 
-  # https://github.com/exb/minimo.git
-  colorscheme minimo
+  # https://github.com/catppuccin/vim.git
+  colorscheme catppuccin_mocha
 catch /^Vim(colorscheme):E185:/
   colorscheme default
   set background=dark
