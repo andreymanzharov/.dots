@@ -1,7 +1,5 @@
 vim9script
 
-packadd lsp
-
 g:LspOptionsSet({ 'noNewlineInCompletion': false })
 
 if executable('rust-analyzer')

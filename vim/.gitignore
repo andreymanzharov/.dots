@@ -1,1 +1,3 @@
-/pack/
+pack/*/
+
+!pack/my/
