@@ -33,9 +33,6 @@
             "unlocked": ""
         }
     },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -119,9 +116,6 @@
         "format-muted": "",
         "on-click": "helvum",
         "format-icons": ["", "", ""]
-    },
-    "sway/language": {
-        "tooltip-format": "{long} {variant}"
     },
     "hyprland/language": {
         "format": "{}",
