@@ -127,5 +127,8 @@
         "format": "{}",
         "format-en": "🇺🇸",
         "format-ru": "🇷🇺"
+    },
+    "hyprland/window": {
+        "separate-outputs": true
     }
 }
