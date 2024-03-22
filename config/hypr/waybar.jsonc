@@ -90,7 +90,7 @@
     "disk#home": {
         "format": "{free} ",
         "states": {
-            "critical": 10
+            "critical": 20
         },
         "path": "/home"
     },
