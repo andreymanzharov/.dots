@@ -5,7 +5,7 @@ source-local-configuration () {
   while [[ $dir != $HOME && $dir != / ]]; do
     if [[ -r $dir/$source ]]; then
       echo "Found .zsh_source..."
-      source $dir/$source
+      source $dir/$source $dir
       return
     fi
     dir=${dir:h}
