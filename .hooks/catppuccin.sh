@@ -7,7 +7,7 @@ themes=(
   waybar/mocha.css                     waybar/main/themes/mocha.css
   bat/themes/Catppuccin\ Mocha.tmTheme bat/main/themes/Catppuccin%20Mocha.tmTheme
   kitty/mocha.conf                     kitty/main/themes/mocha.conf
-  git/mocha.gitconfig                  delta/main/themes/mocha.gitconfig
+  git/catppuccin.gitconfig             delta/main/catppuccin.gitconfig
 )
 
 for file in ${(k)themes}; do

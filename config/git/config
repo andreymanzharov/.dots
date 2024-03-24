@@ -14,7 +14,7 @@
 [interactive]
 	diffFilter = delta --color-only
 [include]
-	path = mocha.gitconfig
+	path = catppuccin.gitconfig
 [delta]
 	features = catppuccin-mocha
 	line-numbers = true
