@@ -33,3 +33,5 @@
 	enabled = true
 [merge]
 	conflictstyle = zdiff3
+[rebase]
+	updateRefs = true
