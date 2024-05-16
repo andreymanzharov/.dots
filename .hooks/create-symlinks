@@ -1,30 +1,38 @@
 #!/usr/bin/env python3
 from pathlib import Path
+from os import uname
+
 
 HOME = Path.home()
+CWD = Path.cwd()
+
+
+CONFIG_DIRS = [
+    CWD,
+    CWD / 'config',
+]
+
+
+OS_SUFFIX = '.' + uname().sysname.lower()
 
 
 def excluded(path):
-    return path.name.startswith('.') or path.suffix == '.md'
+    return path.name.startswith('.') \
+        or (path.suffix and path.suffix != OS_SUFFIX)
 
 
 def configs():
-    cwd = Path.cwd()
-    config = cwd / 'config'
-    yield from (
-        sub.relative_to(cwd)
-        for sub in cwd.iterdir()
-        if sub != config and not excluded(sub)
-    )
-    yield from (
-        sub.relative_to(cwd)
-        for sub in config.iterdir()
-        if not excluded(sub)
-    )
+    for dir in CONFIG_DIRS:
+        yield from (
+            sub.relative_to(CWD)
+            for sub in dir.iterdir()
+            if sub not in CONFIG_DIRS and not excluded(sub)
+        )
 
 
 def update_symlink(path):
-    link = Path(HOME, '.' + path.parts[0], *path.parts[1:])
+    first_part, *rest_parts = path.with_suffix('').parts
+    link = Path(HOME, '.' + first_part, *rest_parts)
     config = path.absolute()
     if link.is_symlink():
         if link.readlink() == config:
