@@ -48,6 +48,32 @@ def update_symlink(path):
           f'to ~/{config.relative_to(HOME)} created')
 
 
+def not_existing_links(dir):
+    yield from (
+        entry
+        for entry in dir.iterdir()
+        if entry.is_symlink() and not entry.exists()
+    )
+
+
+def relative_to_home(dir):
+    match dir.relative_to(CWD).parts:
+        case []:
+            return HOME
+        case [first, *rest]:
+            return Path(HOME, '.' + first, *rest)
+
+
+def cleanup():
+    for config_dir in CONFIG_DIRS:
+        root = relative_to_home(config_dir)
+        for link in not_existing_links(root):
+            if link.readlink().is_relative_to(config_dir):
+                link.unlink()
+                print(f'remove symlink {link}')
+
+
 if __name__ == '__main__':
     for path in configs():
         update_symlink(path)
+    cleanup()
