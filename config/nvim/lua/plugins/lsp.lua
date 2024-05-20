@@ -10,7 +10,9 @@ return {
       servers = {
         clangd = {},
         gopls = {},
-        pylsp = {},
+        pyright = {
+          autostart = false,
+        },
         ocamllsp = {},
         lua_ls = {
           on_init = function(client)
