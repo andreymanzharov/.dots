@@ -7,7 +7,7 @@ vim.g.neovide_transparency = 0.9
 vim.g.neovide_cursor_trail_size = 0
 vim.g.neovide_cursor_vfx_mode = 'railgun'
 vim.g.neovide_remember_window_size = false
-vim.opt.guifont = 'Iosevka Term'
+vim.opt.guifont = 'Iosevka Term:h12'
 
 local function set_scale_factor(scale)
   vim.g.neovide_scale_factor = scale
