@@ -26,11 +26,7 @@ return {
     },
     opts = {
       defaults = {
-        path_display = {
-          filename_first = {
-            reverse_directories = false
-          }
-        },
+        path_display = { "filename_first" },
         mappings = {
           i = {
             ['<c-j>'] = 'move_selection_next',
