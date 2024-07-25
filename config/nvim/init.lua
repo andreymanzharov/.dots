@@ -36,4 +36,8 @@ if not vim.uv.fs_stat(lazy_path) then
 end
 vim.opt.runtimepath:prepend(lazy_path)
 
-require 'lazy'.setup 'plugins'
+require 'lazy'.setup('plugins', {
+  change_detection = {
+    notify = false
+  }
+})
