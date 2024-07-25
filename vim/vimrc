@@ -36,12 +36,6 @@ set modeline
 
 set clipboard^=unnamedplus
 
-#nnoremap Q <nop>
-#nnoremap gQ <nop>
-
-# nnoremap <expr> j v:count == 0 ? "gj" : "j"
-# nnoremap <expr> k v:count == 0 ? "gk" : "k"
-
 cnoremap <expr> <c-h> wildmenumode() ? "\<left>" : "\<c-h>"
 cnoremap <expr> <c-j> wildmenumode() ? "\<c-n>" : "\<c-j>"
 cnoremap <expr> <c-k> wildmenumode() ? "\<c-p>" : "\<c-k>"
