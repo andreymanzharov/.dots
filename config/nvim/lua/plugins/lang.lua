@@ -1,6 +1,12 @@
 return {
   { 'rust-lang/rust.vim',        ft = 'rust' },
-  { 'ziglang/zig.vim',           ft = 'zig' },
+  {
+    'ziglang/zig.vim',
+    init = function()
+      vim.g.zig_fmt_autosave = false
+    end,
+    ft = 'zig',
+  },
   { 'lervag/vimtex',             ft = 'tex' },
   { 'dag/vim-fish',              ft = 'fish' },
   { 'gabrielelana/vim-markdown', ft = 'markdown' },
@@ -117,7 +123,7 @@ return {
       'williamboman/mason.nvim'
     },
     opts = {
-      ensure_installed = { 'jdtls' }
+      ensure_installed = { 'jdtls', 'zls' }
     }
   }
 }
