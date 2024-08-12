@@ -2,10 +2,10 @@ return {
   { 'rust-lang/rust.vim',        ft = 'rust' },
   {
     'ziglang/zig.vim',
+    ft = 'zig',
     init = function()
       vim.g.zig_fmt_autosave = false
     end,
-    ft = 'zig',
   },
   { 'lervag/vimtex',             ft = 'tex' },
   { 'dag/vim-fish',              ft = 'fish' },
