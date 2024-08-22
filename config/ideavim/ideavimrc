@@ -13,7 +13,6 @@ set multiple-cursors
 set ideajoin
 set commentary
 set exchange
-set NERDTree
 set vim-paragraph-motion
 set textobj-indent
 
