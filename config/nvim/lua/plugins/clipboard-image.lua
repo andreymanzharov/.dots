@@ -1,6 +1,6 @@
 return {
   {
-    'ekickx/clipboard-image.nvim',
+    'dfendr/clipboard-image.nvim',
     cmd = 'PasteImg',
     opts = {
       default = {
