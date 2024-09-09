@@ -79,12 +79,7 @@ return {
             { name = 'luasnip' },
           },
           {
-            {
-              name = 'emoji',
-              option = {
-                insert = true,
-              },
-            },
+            { name = 'emoji', option = { insert = true, }, },
             { name = 'path' },
             { name = 'buffer' },
           }
