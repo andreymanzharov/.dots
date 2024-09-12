@@ -148,10 +148,12 @@ return {
   {
     'williamboman/mason.nvim',
     lazy = true,
+    cmd = 'Mason',
     opts = {}
   },
   {
     'williamboman/mason-lspconfig.nvim',
+    lazy = true,
     dependencies = {
       'williamboman/mason.nvim'
     },
