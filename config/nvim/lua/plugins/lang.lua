@@ -23,32 +23,36 @@ return {
 
       local jdtls_path = require 'mason-registry'.get_package 'jdtls':get_install_path()
 
-      local function get_cmd(workspace_dir)
-        return {
-          'java',
-          '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-          '-Dosgi.bundles.defaultStartLevel=4',
-          '-Declipse.product=org.eclipse.jdt.ls.core.product',
-          '-Dlog.protocol=true',
-          '-Dlog.level=ALL',
-          '-Xmx3g',
-          '--add-modules=ALL-SYSTEM',
-          '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-          '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-          -- '-javaagent:' .. lombok,
-          '-jar',
-          vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar'),
-          '-configuration',
-          jdtls_path .. '/config_' .. vim.uv.os_uname().sysname:lower(),
-          '-data',
-          workspace_dir
-        }
-      end
-
       local settings = {
         java = {
+          maven = {
+            downloadSources = true
+          },
+          contentProvider = {
+            preferred = 'fernflower'
+          },
+          completion = {
+            favoriteStaticMembers = {
+              'java.util.Objects.*'
+            },
+            importOrder = {
+              '',
+              'javax',
+              'java',
+              '#',
+            }
+          },
+          configuration = {
+            maven = {
+              -- absolute path to Maven's settings.xml
+              -- userSettings = ''
+            },
+          },
           format = {
             enabled = true
+          },
+          edit = {
+            validateAllOpenBuffersOnChanges = true
           }
         }
       }
@@ -68,36 +72,65 @@ return {
         require 'cmp_nvim_lsp'.default_capabilities()
       )
 
-      local init_options = {
-        bundles = {},
-        extendedClientCapabilities = jdtls.extendedClientCapabilities,
-      }
+      local bundles = {}
 
-      local function on_attach(_, bufnr)
-        print("Hello from JDTLS on_attach!")
+      local function memoize(fn)
+        local t = {}
+        return function(x)
+          local y = t[x]
+          if y == nil then
+            y = fn(x); t[x] = y
+          end
+          return y
+        end
       end
 
-      local function setup()
-        vim.opt_local.shiftwidth = 4
+      local config_for_dir = memoize(function(root_dir)
+        assert(vim.g.jdtls_workspaces_location, '`g:jdtls_workspaces_location` is required')
+        -- if vim.g.jdtls_workspaces_location == nil then
+        --   vim.notify('`g:jdtls_workspaces_location` not specified', vim.log.levels.ERROR)
+        --   return
+        -- end
+        local workspace_dir = vim.g.jdtls_workspaces_location .. '/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
 
-        local root_dir = vim.fn.getcwd()
+        local workspace_folders
 
-        local workspace_dir = root_dir .. '/.jdtls'
+        if vim.uv.fs_stat(root_dir .. '/.cc') then
+          workspace_folders = {}
+          for _, p in ipairs(vim.fn.glob(root_dir .. '/*/pom.xml', true, true)) do
+            local folder = vim.fn.fnamemodify(p, ':h')
+            table.insert(workspace_folders, vim.uri_from_fname(folder))
+          end
+        end
 
-        jdtls.start_or_attach {
-          cmd = get_cmd(workspace_dir),
+        return {
+          cmd = {
+            jdtls_path .. '/bin/jdtls',
+            '--jvm-arg=-Xmx3g',
+            '-data', workspace_dir,
+          },
           root_dir = root_dir,
           settings = settings,
           capabilities = capabilities,
-          init_options = init_options,
-          on_attach = on_attach
+          init_options = {
+            bundles = bundles,
+            workspaceFolders = workspace_folders,
+            extendedClientCapabilities = jdtls.extendedClientCapabilities,
+          },
         }
-      end
+      end)
 
+      local jdtls_group = vim.api.nvim_create_augroup("JDTLS", {})
       vim.api.nvim_create_autocmd("FileType", {
-        group = vim.api.nvim_create_augroup("JDTLS", {}),
+        group = jdtls_group,
         pattern = "java",
-        callback = setup,
+        callback = function()
+          local root_dir = jdtls.setup.find_root({ '.cc' }) or vim.fn.getcwd()
+          local config = config_for_dir(root_dir)
+          if config then
+            jdtls.start_or_attach(config, nil, nil)
+          end
+        end,
       })
     end
   },
