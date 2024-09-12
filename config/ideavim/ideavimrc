@@ -1,6 +1,6 @@
 let mapleader = " "
 
-nnoremap <leader>sv :action IdeaVim.ReloadVimRc.reload<cr>
+set ideastatusicon=gray
 
 set ignorecase
 set incsearch
