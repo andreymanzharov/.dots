@@ -14,14 +14,11 @@ return {
     'mfussenegger/nvim-jdtls',
     ft = 'java',
     dependencies = {
-      'williamboman/mason.nvim',
       -- 'mfussenegger/nvim-dap',
       'hrsh7th/cmp-nvim-lsp'
     },
     config = function()
       local jdtls = require 'jdtls'
-
-      local jdtls_path = require 'mason-registry'.get_package 'jdtls':get_install_path()
 
       local settings = {
         java = {
@@ -105,7 +102,7 @@ return {
 
         return {
           cmd = {
-            jdtls_path .. '/bin/jdtls',
+            'jdtls',
             '--jvm-arg=-Xmx3g',
             '-data', workspace_dir,
           },
@@ -144,21 +141,4 @@ return {
       }
     }
   },
-
-  {
-    'williamboman/mason.nvim',
-    lazy = true,
-    cmd = 'Mason',
-    opts = {}
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    lazy = true,
-    dependencies = {
-      'williamboman/mason.nvim'
-    },
-    opts = {
-      ensure_installed = { 'jdtls', 'zls' }
-    }
-  }
 }
