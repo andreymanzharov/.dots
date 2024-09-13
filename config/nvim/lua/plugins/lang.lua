@@ -1,15 +1,67 @@
 return {
-  { 'rust-lang/rust.vim',        ft = 'rust' },
+  {
+    'neovim/nvim-lspconfig',
+    opts = {
+      servers = {
+        clangd = {},
+        gopls = {},
+        lua_ls = {
+          on_init = function(client)
+            local path = client.workspace_folders[1].name
+            if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
+              return
+            end
+            client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+              runtime = {
+                version = 'LuaJIT'
+              },
+              workspace = {
+                checkThirdParty = false,
+                library = {
+                  vim.env.VIMRUNTIME
+                  -- "${3rd}/luv/library"
+                  -- "${3rd}/busted/library",
+                }
+              }
+            })
+          end,
+          settings = {
+            Lua = {}
+          }
+        },
+        ocamllsp = {},
+        pyright = {
+          autostart = false,
+        },
+        rust_analyzer = {},
+        zls = {},
+      }
+    }
+  },
+
+  {
+    'rust-lang/rust.vim',
+    ft = 'rust',
+  },
   {
     'ziglang/zig.vim',
     ft = 'zig',
-    init = function()
+    config = function()
       vim.g.zig_fmt_autosave = false
     end,
   },
-  { 'lervag/vimtex',             ft = 'tex' },
-  { 'dag/vim-fish',              ft = 'fish' },
-  { 'gabrielelana/vim-markdown', ft = 'markdown' },
+  {
+    'lervag/vimtex',
+    ft = 'tex',
+  },
+  {
+    'dag/vim-fish',
+    ft = 'fish'
+  },
+  {
+    'gabrielelana/vim-markdown',
+    ft = 'markdown'
+  },
   {
     'mfussenegger/nvim-jdtls',
     ft = 'java',
@@ -130,15 +182,5 @@ return {
         end,
       })
     end
-  },
-
-  {
-    'neovim/nvim-lspconfig',
-    opts = {
-      servers = {
-        rust_analyzer = {},
-        zls = {},
-      }
-    }
   },
 }

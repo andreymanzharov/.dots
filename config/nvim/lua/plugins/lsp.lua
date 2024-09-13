@@ -6,40 +6,6 @@ return {
       'nvim-telescope/telescope.nvim',
       'hrsh7th/cmp-nvim-lsp'
     },
-    opts = {
-      servers = {
-        clangd = {},
-        gopls = {},
-        pyright = {
-          autostart = false,
-        },
-        ocamllsp = {},
-        lua_ls = {
-          on_init = function(client)
-            local path = client.workspace_folders[1].name
-            if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
-              return
-            end
-            client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-              runtime = {
-                version = 'LuaJIT'
-              },
-              workspace = {
-                checkThirdParty = false,
-                library = {
-                  vim.env.VIMRUNTIME
-                  -- "${3rd}/luv/library"
-                  -- "${3rd}/busted/library",
-                }
-              }
-            })
-          end,
-          settings = {
-            Lua = {}
-          }
-        }
-      }
-    },
     config = function(_, opts)
       local function on_attach(client, bufnr)
         local opts = { buffer = bufnr }
