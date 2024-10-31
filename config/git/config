@@ -35,3 +35,4 @@
 	conflictstyle = zdiff3
 [rebase]
 	updateRefs = true
+	autoSquash = true
